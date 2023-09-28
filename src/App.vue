@@ -12,13 +12,13 @@ export default {
 </script>
 
 <template>
-  <main>
+  <div>
     <nav-bar></nav-bar>
-    <div class="container h-full m-auto p-4">
+    <main class="container h-full m-auto p-4">
       <router-view></router-view>
-    </div>
+    </main>
     <footer-component></footer-component>
-  </main>
+  </div>
 </template>
 
 
