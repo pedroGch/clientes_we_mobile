@@ -1,0 +1,14 @@
+Carrera: Diseño y Programación Web,
+Materia: Clientes Web Mobile,
+Cuatrimestre: 4to,
+Año: 2023,
+Turno: noche (virtual),
+Comisión: DWN4BV,
+
+Equipo:
+* Gonzalez Chavez, Pedro
+* Scotto Rocío Belén
+* Valdiviezo, Ezequiel Francisco
+
+Docente: Gallino Santiago 
+Carácter de entrega: Primer Parcial.
