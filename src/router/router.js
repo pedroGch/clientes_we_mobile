@@ -2,6 +2,7 @@
 
 import Home from '../pages/Home.vue';
 import Cursos from '../pages/Cursos.vue';
+import Chat from '../pages/Chat.vue';
 import { createRouter, createWebHashHistory } from 'vue-router'; // Importamos el router de Vue
 
 
@@ -13,6 +14,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'; // Importamos e
 const routes = [
   {path: '/',           component: Home},
   {path: '/cursos',     component: Cursos},
+  {path: '/chat',       component: Chat},
 ];
 
 

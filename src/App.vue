@@ -1,30 +1,41 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+<header class="flex gap-8 items-center p-4 bg-slate-200">
+    <div>
+      <p class="text-2xl">DHARA</p>
+    </div>
+    <nav>
+      <ul class="flex gap-4">
+        <li>
+          <router-link to="/">Home</router-link>
+        </li>
+        <li>
+          <router-link to="/cursos">Cursos</router-link>
+        </li>
+        <li>
+          <router-link to="/chat">Chat</router-link>
+        </li>
+        <li>
+          <router-link to="/registro">Registro</router-link>
+        </li>
+        <li>
+          <router-link to="/iniciar-sesion">Iniciar Sesión</router-link>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container h-full m-auto p-4">
+    <router-view></router-view>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+
+  <footer>
+    <p class="flex justify-center items-center h-[100px] p-4 bg-slate-800 text-white">Scotto Rocío &copy 2023</p>
+  </footer>
+
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+
