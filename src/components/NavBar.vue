@@ -7,7 +7,10 @@ export default {
 <template>
   <header class="flex gap-8 items-center p-4 bg-principal text-white">
     <div>
-      <p class="text-2xl">DHARA</p>
+      <div class="mx-6 w-[280px] h-[80px]">
+        <img src="./../../public/img/logo.png" alt="logo del rincon sustentable" class=" w-screen my-2  ">
+        <h1 class="text-[0px]" >Dhara</h1>
+      </div>
     </div>
     <nav>
       <ul class="flex gap-4">
