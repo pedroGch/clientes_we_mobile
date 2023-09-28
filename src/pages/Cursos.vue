@@ -3,7 +3,8 @@
 </script>
 
 <template>
-
-  <h2>Cursos</h2>
+  <div>
+    <h2>Cursos</h2>
+  </div>
 
 </template>
