@@ -13,9 +13,13 @@ export default {
         'violeta': "#9455be",
         'principal': "#4a2980"
       },
+      fontFamily: {
+        'tipografiaTitulares': ['Catamaran', 'sans-serif'],
+      }
     },
   },
   plugins: [require("tw-elements/dist/plugin.cjs")],
   darkMode: "class"
 }
+
 
