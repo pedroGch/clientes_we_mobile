@@ -6,7 +6,14 @@ export default {
     "./node_modules/tw-elements/dist/js/**/*.js",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'negro': "#141414",
+        'magenta': "#64ffda",
+        'violeta': "#9455be",
+        'principal': "#4a2980"
+      },
+    },
   },
   plugins: [require("tw-elements/dist/plugin.cjs")],
   darkMode: "class"
