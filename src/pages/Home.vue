@@ -1,10 +1,12 @@
 <script>
 import SliderComponent from '../components/SliderComponent.vue';
+import BaseH2 from '../components/BaseH2.vue';
 
 export default {
   name:"Home",
   components: {
     SliderComponent,
+    BaseH2,
   }
 }
 </script>
@@ -14,7 +16,7 @@ export default {
   <div>
 
     <SliderComponent></SliderComponent>
-    <h2 class="font-tipografiaTitulares font-bold text-3xl">Home</h2>
+    <BaseH2>Bienvenido a Dhara</BaseH2>
   </div>
 
 </template>
