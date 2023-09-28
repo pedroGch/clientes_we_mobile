@@ -9,7 +9,7 @@ export default {
     extend: {
       colors: {
         'negro': "#141414",
-        'magenta': "#64ffda",
+        'verde': "#64ffda",
         'violeta': "#9455be",
         'principal': "#4a2980"
       },
