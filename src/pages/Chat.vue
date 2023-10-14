@@ -1,5 +1,6 @@
 <script>
-import { loadSnapshot } from '../services/chatActions';
+import { loadSnapshot } from '../services/chatActions.js';
+import { dateToString } from '../helpers/date.js';
 export default{
   name:"chat",
   data(){
@@ -59,8 +60,8 @@ export default{
                 </div>
                 <div class="h-[400px]">
                   <div class="h-[80%]">
-                    <p class="bg-slate-200 p-2 my-3">{{ chatPersonal.mensaje }}</p>
-                    <p class="bg-principal text-white p-2 text-right">{{ chatPersonal.respuesta }}</p>
+                    <p class="bg-slate-200 p-2 my-3">{{ chatPersonal.mensaje }} <span>{{dateToString(chatPersonal.fecha_mensaje)}}</span></p>
+
                   </div>
                   <form action="" class="">
                     <input type="text">
