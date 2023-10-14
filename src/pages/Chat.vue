@@ -3,14 +3,18 @@ import { loadSnapshot } from '../services/chatActions.js';
 import { dateToString } from '../helpers/date.js';
 import Loader from "../components/Loader.vue";
 import BaseButton from "../components/BaseButton.vue";
+import BaseLabel from "../components/BaseLabel.vue";
+import BaseInput from "../components/BaseInput.vue";
 
 export default{
   name:"chat",
   components: {
     Loader,
     BaseButton,
-   },
-   
+    BaseLabel,
+    BaseInput,
+},
+
   data(){
     return{
       isLoading: true,
@@ -56,9 +60,8 @@ export default{
             <p class="text-2xl font-black capitalize"> {{ c.usuario }} </p>
           </div>
           <div class="mt-4 mb-10 px-6 mx-auto">
-            <button @click="abrirChat(c)" class=" p-1 border text-xs rounded text-white bg-violeta px-6 pb-2 pt-2.5 font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] border-transparent transition duration-150 ease-in-out  ">
-              ingresar al chat
-            </button>
+            <BaseButton @click="abrirChat(c)">Ingresar al chat
+            </BaseButton>
           </div>
         </div>
       </div>
@@ -74,7 +77,7 @@ export default{
                 <div class="flex justify-between items-center pb-3">
                     <p class="text-2xl font-bold">Chatea con {{chatPersonal.usuario}}.</p>
                     <button class="modal-close cursor-pointer z-50" @click="cerrarChat()">
-                        <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                        <svg class="fill-current text-principal" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
                             <path
                                 d="M1.393 1.393a1 1 0 011.414 0L9 7.586l6.193-6.193a1 1 0 111.414 1.414L10.414 9l6.193 6.193a1 1 0 11-1.414 1.414L9 10.414l-6.193 6.193a1 1 0 01-1.414-1.414L7.586 9 1.393 2.807a1 1 0 010-1.414z"/>
                         </svg>
@@ -90,7 +93,8 @@ export default{
             </div>
             <div class="modal-footer px-6 w-[100%]">
               <form action="" class="flex justify-between" >
-                    <input type="text" placeholder="Ingresá tu mensaje" class="w-[250px] border rounded border-violeta">
+                    <BaseLabel for="message">Mensaje</BaseLabel>
+                    <BaseInput type="text" placeholder="Ingresá tu mensaje" id="message" name="message" />
                     <BaseButton></BaseButton>
                   </form>
             </div>

@@ -13,7 +13,7 @@ export default {
 
 <template>
   <div>
-    <nav-bar></nav-bar>
+    <NavBar></NavBar>
     <main class="container h-full m-auto p-4">
       <router-view></router-view>
     </main>
