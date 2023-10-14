@@ -19,7 +19,7 @@
   <header class="flex gap-8 items-center p-4 bg-principal text-white justify-between">
     <div>
       <div class="mx-6 w-[280px] h-[80px]">
-        <img src="./../../public/img/logo.png" alt="logo del rincon sustentable" class=" w-screen my-2  ">
+        <img src="/img/logo.png" alt="logo del rincon sustentable" class=" w-screen my-2  ">
         <h1 class="text-[0px]">Dhara</h1>
       </div>
     </div>

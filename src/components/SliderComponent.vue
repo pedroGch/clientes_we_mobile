@@ -23,17 +23,17 @@
               <!--First item-->
               <div class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                   data-te-carousel-item data-te-carousel-active>
-                  <img src="./../../public/img/slider_1.jpg" class="block w-full" alt="" />
+                  <img src="/img/slider_1.jpg" class="block w-full" alt="" />
               </div>
               <!--Second item-->
               <div class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                   data-te-carousel-item>
-                  <img src="./../../public/img/slider_2.jpg" class="block w-full" alt="" />
+                  <img src="/img/slider_2.jpg" class="block w-full" alt="" />
               </div>
               <!--Third item-->
               <div class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                   data-te-carousel-item>
-                  <img src="./../../public/img/slider_3.jpg" class="block w-full" alt="" />
+                  <img src="/img/slider_3.jpg" class="block w-full" alt="" />
               </div>
 
           </div>
