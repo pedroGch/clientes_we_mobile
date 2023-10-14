@@ -1,16 +1,23 @@
 <script>
 import { loadSnapshot } from '../services/chatActions.js';
 import { dateToString } from '../helpers/date.js';
+import Loader from "../components/Loader.vue";
 export default{
   name:"chat",
+  components: { Loader },
   data(){
     return{
+      isLoading: true,
       chats:[],
       chatPersonal:{}
     }
   },
   mounted(){
-    loadSnapshot(chats => {this.chats = chats})
+    this.isLoading = true
+    loadSnapshot(chats => {
+      this.chats = chats;
+      this.isLoading = false
+    })
   },
   methods:{
     abrirChat(chat){
@@ -21,6 +28,9 @@ export default{
     cerrarChat(){
       const modal = document.querySelector('#modal');
       modal.classList.add('hidden');
+    },
+    dateToString(date){
+      return dateToString(date)
     }
   }
 
@@ -30,21 +40,27 @@ export default{
 <template>
   <div>
     <h2>Chat</h2>
-    <div class="flex gap-3">
-      <div v-for="(c,i) in chats" :key="i" class="flex flex-col  bg-slate-200 p-4 my-2 w-[300px] h-[305px]">
-        <div class="">
-          <img src="../../public/img/avatar.jpeg" class="w-24 h-24 rounded-full mx-auto shadow-xl" alt="imagen de usuario">
-        </div>
-        <div class="mt-6  mb-4 px-6 mx-auto ">
-          <p class="text-2xl font-black capitalize"> {{ c.usuario }} </p>
-        </div>
-        <div class="mt-4 mb-10 px-6 mx-auto">
-          <button @click="abrirChat(c)" class=" p-1 border text-xs rounded text-white bg-violeta px-6 pb-2 pt-2.5 font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] border-transparent transition duration-150 ease-in-out  ">
-            ingresar al chat
-          </button>
+    <template v-if="!isLoading">
+      <div class="flex gap-3">
+        <div v-for="(c,i) in chats" :key="i" class="flex flex-col  bg-slate-200 p-4 my-2 w-[300px] h-[305px]">
+          <div class="">
+            <img src="../../public/img/avatar.jpeg" class="w-24 h-24 rounded-full mx-auto shadow-xl" alt="imagen de usuario">
+          </div>
+          <div class="mt-6  mb-4 px-6 mx-auto ">
+            <p class="text-2xl font-black capitalize"> {{ c.usuario }} </p>
+          </div>
+          <div class="mt-4 mb-10 px-6 mx-auto">
+            <button @click="abrirChat(c)" class=" p-1 border text-xs rounded text-white bg-violeta px-6 pb-2 pt-2.5 font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] border-transparent transition duration-150 ease-in-out  ">
+              ingresar al chat
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </template>
+    <template v-else>
+      <Loader class="flex" />
+    </template>
+
     <div id="modal" class="fixed inset-0  flex items-center justify-center z-50 hidden ">
         <div class="modal-container bg-white w-[45%] h-[600px] md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
             <!-- Contenido del modal -->
@@ -63,11 +79,14 @@ export default{
                     <p class="bg-slate-200 p-2 my-3">{{ chatPersonal.mensaje }} <span>{{dateToString(chatPersonal.fecha_mensaje)}}</span></p>
 
                   </div>
-                  <form action="" class="">
-                    <input type="text">
-                    <input type="submit" value="Enviar">
-                  </form>
+
                 </div>
+            </div>
+            <div class="modal-footer px-6 w-[100%]">
+              <form action="" class="flex justify-between" >
+                    <input type="text" placeholder="Ingresá tu mensaje" class="w-[250px] border rounded border-violeta">
+                    <input type="submit" value="Enviar" class="p-1 border text-xs rounded  text-white bg-violeta px-6 pb-2 pt-2.5 font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] border-transparent transition duration-150 ease-in-out ">
+                  </form>
             </div>
         </div>
     </div>
