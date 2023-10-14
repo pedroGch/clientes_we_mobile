@@ -1,0 +1,8 @@
+export const APIKEY="AIzaSyA9DBwDktJKk4GmVlctvfhfRV7ql3VmNu8"
+export const AUTHDOMAIN= "parcialclientesweb.firebaseapp.com"
+export const PROJECTID="parcialclientesweb"
+export const STORAGEBUCKET="parcialclientesweb.appspot.com"
+export const MESSAGINGSENDERID="42059681606"
+export const APPID="1:42059681606:web:1f963f90c41c2ac038df47"
+export const MASUREMENTID="G-Q2KPLDFQS9"
+export const BDNAME="chats"
