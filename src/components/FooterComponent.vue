@@ -22,7 +22,7 @@ export default {
           <h3 class="block mb-2 text-xl font-bold ">Comisión - Cuatrimestre - Año:</h3>
           <p class="">DWN4BV - 4to - 2023</p>
         </div>
-        <div class="mb-4"><img src="../../public/img/logo-davinci.png" class="" alt="logo Escuela Da Vinci" /></div>
+        <div class="mb-4"><img src="/img/logo-davinci.png" class="" alt="logo Escuela Da Vinci" /></div>
       </div>
 
       <div id="container-team" class="flex-1">
@@ -32,7 +32,7 @@ export default {
         <div class="flex">
 
           <div id="avatar-pedro" class="text-center px-6 pt-8">
-            <img src="../../public/img/avatars/avatar-pedro.jpg" class="mx-auto mb-4 w-32 rounded-full"
+            <img src="/img/avatars/avatar-pedro.jpg" class="mx-auto mb-4 w-32 rounded-full"
               alt="Avatar Pedro Gonzalez Chavez" />
             <p class="mb-2  font-medium leading-tight">Pedro <br>Gonzalez Chavez</p>
             <div>
@@ -50,7 +50,7 @@ export default {
           </div>
 
           <div id="avatar-rocio" class="text-center px-6 pt-8">
-            <img src="../../public/img/avatars/avatar-rocio.jpg" class="mx-auto mb-4 w-32 rounded-full"
+            <img src="/img/avatars/avatar-rocio.jpg" class="mx-auto mb-4 w-32 rounded-full"
               alt="Avatar Rocío Scotto" />
             <p class="mb-2  font-medium leading-tight">Rocío <br>Scotto</p>
             <div>
@@ -68,7 +68,7 @@ export default {
           </div>
 
           <div id="avatar-valdi" class="text-center px-6 pt-8">
-            <img src="../../public/img/avatars/avatar-valdi.jpg" class="mx-auto mb-4 w-32 rounded-full"
+            <img src="/img/avatars/avatar-valdi.jpg" class="mx-auto mb-4 w-32 rounded-full"
               alt="Avatar Ezequiel Valdiviezo" />
             <p class="mb-2  font-medium leading-tight">Ezequiel <br>Valdiviezo</p>
             <div>

@@ -3,6 +3,8 @@
 import Home from '../pages/Home.vue';
 import Cursos from '../pages/Cursos.vue';
 import Chat from '../pages/Chat.vue';
+import Registro from '../pages/registro.vue';
+import IniciarSesion from '../pages/IniciarSesion.vue';
 import { createRouter, createWebHashHistory } from 'vue-router'; // Importamos el router de Vue
 
 
@@ -15,6 +17,8 @@ const routes = [
   {path: '/',           component: Home},
   {path: '/cursos',     component: Cursos},
   {path: '/chat',       component: Chat},
+  {path: '/registro',       component: Registro},
+  {path: '/iniciar-sesion',       component: IniciarSesion},
 ];
 
 
