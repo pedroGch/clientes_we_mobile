@@ -7,21 +7,30 @@ import {
   addDoc,
   updateDoc,
   doc,
-  deleteDoc
+  deleteDoc,
+  serverTimestamp,
+  query,
+  orderBy,
 } from "firebase/firestore"
 
 const refChat = collection(db, BDNAME)
+const qry = query(refChat, orderBy('created_at'))
 
-export function todoSave(data){
-  return addDoc(refChat, data);
+export function chatSave(data){
+  return addDoc(refChat, {
+    ...data,
+    created_at: serverTimestamp()
+  });
 }
 
 export  function loadSnapshot (callback){
-  onSnapshot(refChat, snapshot => {
+  onSnapshot(qry,refChat, snapshot => {
     const data = snapshot.docs.map(doc => {
       return {
+        id: doc.id,
         mensaje: doc.data().mensaje,
         usuario: doc.data().usuario,
+        fecha_mensaje: doc.data().created_at
 
       }
     })
