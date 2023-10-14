@@ -2,6 +2,7 @@ import {BDNAME} from './../config'
 import {db} from "./firebase.mjs"
 import {
   collection,
+  getDocs,
   onSnapshot,
   addDoc,
   updateDoc,
@@ -15,7 +16,7 @@ export function todoSave(data){
   return addDoc(refChat, data);
 }
 
-export function loadSnapshot (callback){
+export  function loadSnapshot (callback){
   onSnapshot(refChat, snapshot => {
     const data = snapshot.docs.map(doc => {
       return {
@@ -28,6 +29,7 @@ export function loadSnapshot (callback){
   })
 
 }
+
 
 export function taskCompleted(task) {
   console.log(task)
