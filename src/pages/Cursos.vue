@@ -1,10 +1,12 @@
 <script>
 import BaseH2 from '../components/BaseH2.vue';
+import BaseButton from '../components/BaseButton.vue';
 
 export default {
   name:"Cursos",
   components: {
     BaseH2,
+    BaseButton,
   }
 }
 </script>
@@ -30,9 +32,7 @@ export default {
           <p class="text-gray-700 text-base">
             Stock disponible: 50 plazas
           </p>
-          <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-          Ver más
-        </button>
+          <BaseButton>Ver más</BaseButton>
         </div>
     </div>
 
@@ -46,9 +46,7 @@ export default {
           <p class="text-gray-700 text-base">
             Stock disponible: 40 plazas
           </p>
-          <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-          Ver más
-        </button>
+          <BaseButton>Ver más</BaseButton>
         </div>
     </div>
 
@@ -62,9 +60,7 @@ export default {
           <p class="text-gray-700 text-base">
             Stock disponible: 30 plazas
           </p>
-          <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-          Ver más
-        </button>
+          <BaseButton>Ver más</BaseButton>
         </div>
     </div>
 
@@ -78,9 +74,7 @@ export default {
           <p class="text-gray-700 text-base">
             Stock disponible: Ilimitado
           </p>
-          <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-          Ver más
-        </button>
+          <BaseButton>Ver más</BaseButton>
         </div>
     </div>
     </div>
