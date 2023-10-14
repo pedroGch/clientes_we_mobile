@@ -2,6 +2,7 @@
 import BaseH2 from '../components/BaseH2.vue';
 import BaseButton from '../components/BaseButton.vue';
 import BaseInput from '../components/BaseInput.vue';
+import BaseLabel from '../components/BaseLabel.vue';
 
 export default {
   name:"Registro",
@@ -9,6 +10,7 @@ export default {
     BaseH2,
     BaseButton,
     BaseInput,
+    BaseLabel,
   }
 }
 </script>
@@ -23,35 +25,27 @@ export default {
                 class="max-w-[100%] block rounded-lg bg-white lg:p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                 <div class="relative mb-6" data-te-input-wrapper-init>
                     <BaseInput type="text" name="user_name"/>
-                    <label for="user_name"
-                        class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-violeta peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-violeta">Nombre
-                        de usuario</label>
+                    <BaseLabel for="user_name">Nombre de usuario</BaseLabel>
                 </div>
 
                 <div class="relative mb-6" data-te-input-wrapper-init>
                     <BaseInput type="email" name="user_email" />
-                    <label for="user_email"
-                        class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-violeta peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-violeta">Email</label>
+                    <BaseLabel for="user_email">Email</BaseLabel>
                 </div>
 
                 <div class="relative mb-6" data-te-input-wrapper-init>
                     <BaseInput type="email" name="user_email_again"/>
-                    <label for="user_email_again"
-                        class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-violeta peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-violeta">Repetir
-                        email</label>
+                    <BaseLabel for="user_email_again">Repetir email</BaseLabel>
                 </div>
 
                 <div class="relative mb-6" data-te-input-wrapper-init>
                     <BaseInput type="password" name="password" />
-                    <label for="password"
-                        class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-violeta peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-violeta">Contraseña</label>
+                    <BaseLabel for="password">Contraseña</BaseLabel>
                 </div>
 
                 <div class="relative mb-6" data-te-input-wrapper-init>
                     <BaseInput type="password" name="password_repeat"/>
-                    <label for="password_repeat"
-                        class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-violeta peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-violeta">Repetir
-                        contraseña</label>
+                    <BaseLabel for="password_repeat">Repetir contraseña</BaseLabel>
                 </div>
 
                 <BaseButton>Ingresar</BaseButton>
