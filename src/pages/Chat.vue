@@ -2,9 +2,15 @@
 import { loadSnapshot } from '../services/chatActions.js';
 import { dateToString } from '../helpers/date.js';
 import Loader from "../components/Loader.vue";
+import BaseButton from "../components/BaseButton.vue";
+
 export default{
   name:"chat",
-  components: { Loader },
+  components: {
+    Loader,
+    BaseButton,
+   },
+   
   data(){
     return{
       isLoading: true,
@@ -85,7 +91,7 @@ export default{
             <div class="modal-footer px-6 w-[100%]">
               <form action="" class="flex justify-between" >
                     <input type="text" placeholder="Ingresá tu mensaje" class="w-[250px] border rounded border-violeta">
-                    <input type="submit" value="Enviar" class="p-1 border text-xs rounded  text-white bg-violeta px-6 pb-2 pt-2.5 font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] border-transparent transition duration-150 ease-in-out ">
+                    <BaseButton></BaseButton>
                   </form>
             </div>
         </div>
