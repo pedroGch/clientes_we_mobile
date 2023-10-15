@@ -1,4 +1,4 @@
-import {BDNAME} from './../config'
+import {BDNAME} from '../../conf'
 import {db} from "./firebase.js"
 import {
   collection,
