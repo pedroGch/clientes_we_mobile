@@ -1,5 +1,6 @@
 
-import { onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { async } from '@firebase/util';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { auth } from './firebase.js';
 
 let userData = {
@@ -12,13 +13,34 @@ if (localStorage.getItem('user')){
   userData = JSON.parse(localStorage.getItem('user'))
 }
 
+/**
+ *
+ * @param {{email:string, password:string}} user
+ * @return {Promise}
+ */
+export async function register({email, password}) {
+  try {
+    const userCredentials = await createUserWithEmailAndPassword(auth, email, password)
+    return {
+      id : userCredentials.user.uid,
+      email: userCredentials.user.email
+    }
+  } catch (error) {
+    return {
+      code: error.code,
+      message: error.message,
+    }
+  }
+
+}
+
 onAuthStateChanged(auth, user => {
   if (user){
     setUserData({
       id: user.uid,
       email: user.email,
     })
-    localStorage.setItem('user', JSON.stringfy(userData))
+    localStorage.setItem('user', JSON.stringify('user'))
   }else{
     clearUserData()
     localStorage.removeItem('user')
