@@ -4,6 +4,9 @@
 .config.js
 .conf.js
 .conf
+conf
+conf.js
+./conf.js
 ### macOS ###
 # General
 .DS_Store
