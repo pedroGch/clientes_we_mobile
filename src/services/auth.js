@@ -8,14 +8,20 @@ let userData = {
 }
 let observers = [];
 
+if (localStorage.getItem('user')){
+  userData = JSON.parse(localStorage.getItem('user'))
+}
+
 onAuthStateChanged(auth, user => {
   if (user){
     setUserData({
       id: user.uid,
       email: user.email,
     })
+    localStorage.setItem('user', JSON.stringfy(userData))
   }else{
     clearUserData()
+    localStorage.removeItem('user')
   }
 })
 
