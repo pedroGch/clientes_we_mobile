@@ -52,6 +52,7 @@ export function logout() {
  * El observer debe ser una función que reciba como argumento un objeto y no retorne nada.
  *
  * @param {({id: null|string, email: null|string}) => void} observer
+ * @returns {() => void}
  */
 export function subscribeToAuth(observer) {
     // Agregamos el observer a la lista.
@@ -59,6 +60,10 @@ export function subscribeToAuth(observer) {
 
     // Ejecutamos el observer inmediatamente con la data actual.
     notify(observer);
+
+    return () => {
+      observers = observers.filter(obs = obs !== observer)
+    }
 }
 
 /**
