@@ -16,15 +16,16 @@ export default {
     return{
       formulario: {
         email: '',
-        contrasenia: '',
+        password: '',
       }
     }
   },
   methods:{
-    logear(){
+    loguear(){
       login({...this.formulario})
         .then(usuario => {
           this.$emit('login', {...usuario})
+          console.log(usuario)
         })
         .catch((err) => { alert('UPS algo no va bien')})
         .finally(()=>{
