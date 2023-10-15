@@ -27,16 +27,22 @@ export default{
       },
       nuevoMensaje: {
         mensaje: ''
-      }
+      },
+      unsuscribeChat: () => {},
+      unsuscribeAuth: () => {},
     }
   },
   mounted(){
     this.isLoading = true
-    loadSnapshot(chats => {
+    this.unsuscribeChat = loadSnapshot(chats => {
       this.chats = chats;
       this.isLoading = false
     })
-    subscribeToAuth(nuevoUsuario => this.usuario = {...nuevoUsuario})
+    this.unsuscribeAuth = subscribeToAuth(nuevoUsuario => this.usuario = {...nuevoUsuario})
+  },
+  unmounted(){
+    this.unsuscribeAuth()
+    this.unsuscribeChat()
   },
   methods:{
     abrirChat(chat){
