@@ -1,10 +1,11 @@
 <script>
-import { loadSnapshot } from '../services/chatActions.js';
+import { loadSnapshot, saveMessage } from '../services/chatActions.js';
 import { dateToString } from '../helpers/date.js';
 import Loader from "../components/Loader.vue";
 import BaseButton from "../components/BaseButton.vue";
 import BaseLabel from "../components/BaseLabel.vue";
 import BaseInput from "../components/BaseInput.vue";
+import { subscribeToAuth } from '../services/auth';
 
 export default{
   name:"chat",
@@ -19,7 +20,14 @@ export default{
     return{
       isLoading: true,
       chats:[],
-      chatPersonal:{}
+      chatPersonal:{},
+      usuario: {
+        id: null,
+        email:null
+      },
+      nuevoMensaje: {
+        mensaje: ''
+      }
     }
   },
   mounted(){
@@ -28,6 +36,7 @@ export default{
       this.chats = chats;
       this.isLoading = false
     })
+    subscribeToAuth(nuevoUsuario => this.usuario = {...nuevoUsuario})
   },
   methods:{
     abrirChat(chat){
@@ -41,7 +50,14 @@ export default{
     },
     dateToString(date){
       return dateToString(date)
+    },
+    enviarMensaje(){
+      saveMessage({
+        usuario: this.usuario.email,
+        mensaje: this.nuevoMensaje.mensaje
+      })
     }
+
   }
 
 }
@@ -94,7 +110,7 @@ export default{
             <div class="modal-footer px-6 w-[100%]">
               <form action="" class="flex justify-between" >
                     <BaseLabel for="message">Mensaje</BaseLabel>
-                    <BaseInput type="text" placeholder="Ingresá tu mensaje" id="message" name="message" />
+                    <BaseInput type="text" placeholder="Ingresá tu mensaje" id="message" name="message" v-model="nuevoMensaje.mensaje" />
                     <BaseButton></BaseButton>
                   </form>
             </div>
