@@ -16,12 +16,12 @@ import { subscribeToAuth } from '../services/auth';
 // Primero definimos la lista de rutas
 
 const routes = [
-  {path: '/',           component: Home},
-  {path: '/cursos',     component: Cursos},
-  {path: '/chat',       component: Chat},
+  {path: '/',               component: Home},
+  {path: '/cursos',         component: Cursos},
+  {path: '/chat',           component: Chat, meta:{requiresAuth:true}},
   {path: '/registro',       component: Registro},
-  {path: '/iniciar-sesion',       component: IniciarSesion},
-  {path: '/perfil-admin',       component: PerfilAdmin},
+  {path: '/iniciar-sesion', component: IniciarSesion},
+  {path: '/perfil-admin',   component: PerfilAdmin, meta:{requiresAuth:true}},
 ];
 
 
@@ -42,7 +42,7 @@ let user = {
 subscribeToAuth(nuevoUsuario => user = nuevoUsuario)
 
 router.beforeEach((to, from) => {
-  if (user.id === null && to.path === '/chat'){
+  if (user.id === null && to.meta.requiresAuth){
     return '/iniciar-sesion'
   }
 
