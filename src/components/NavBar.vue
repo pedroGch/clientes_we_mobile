@@ -34,7 +34,7 @@
           <!-- INICIO Botones que serán visibles cuando NO haya un usuario logueado -->
           <!-- INICIO Botones que serán visibles cuando SI haya un usuario logueado -->
           <li>
-            <router-link to="/perfil">Nombre Usuario</router-link>
+            <router-link to="/">Nombre Usuario</router-link>
           </li>
         </ul>
       </div>
