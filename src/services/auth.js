@@ -1,5 +1,5 @@
 
-import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { auth } from './firebase.js';
 
 let userData = {
@@ -7,6 +7,17 @@ let userData = {
     email: null,
 }
 let observers = [];
+
+onAuthStateChanged(auth, user => {
+  if (user){
+    setUserData({
+      id: user.uid,
+      email: user.email,
+    })
+  }else{
+    clearUserData()
+  }
+})
 
 /**
  * Inicia sesión.
@@ -17,11 +28,6 @@ let observers = [];
 export function login({email, password}) {
   return signInWithEmailAndPassword(auth, email, password)
         .then(userCredentials => {
-            setUserData({
-                id: userCredentials.user.uid,
-                email: userCredentials.user.email,
-            });
-
             return {...userData};
         })
         .catch(error => {
@@ -37,14 +43,7 @@ export function login({email, password}) {
  * @returns {Promise}
  */
 export function logout() {
-    const promise = signOut(auth);
-    clearUserData();
-    // userData = {
-    //     id: null,
-    //     email: null,
-    // }
-    // notifyAll();
-    return promise;
+    return signOut(auth);
 }
 
 /**
