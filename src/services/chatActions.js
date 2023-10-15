@@ -16,7 +16,7 @@ import {
 const refChat = collection(db, BDNAME)
 const qry = query(refChat, orderBy('created_at'))
 
-export function chatSave(data){
+export function saveMessage(data){
   return addDoc(refChat, {
     ...data,
     created_at: serverTimestamp()
@@ -40,13 +40,13 @@ export  function loadSnapshot (callback){
 }
 
 
-export function taskCompleted(task) {
-  console.log(task)
-  updateDoc(doc(db, BDNAME , task.id),{
-    completed: !task.completed,
-  })
-}
+// export function taskCompleted(task) {
+//   console.log(task)
+//   updateDoc(doc(db, BDNAME , task.id),{
+//     completed: !task.completed,
+//   })
+// }
 
-export async function deleteTask(task){
-  await deleteDoc(doc(db, BDNAME , task.id))
-}
+// export async function deleteTask(task){
+//   await deleteDoc(doc(db, BDNAME , task.id))
+// }
