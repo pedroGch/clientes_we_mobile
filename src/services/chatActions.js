@@ -14,7 +14,7 @@ import {
 } from "firebase/firestore"
 
 const refChat = collection(db, BDNAME)
-const qry = query(refChat, orderBy('created_at'))
+
 
 export function saveMessage(data){
   return addDoc(refChat, {
@@ -23,8 +23,14 @@ export function saveMessage(data){
   });
 }
 
+/**
+ * @params {() => {}} callback
+ * @returns (import('firebase/auth').Unsubscribe)
+ */
+
 export  function loadSnapshot (callback){
-  onSnapshot(qry,refChat, snapshot => {
+  const qry = query(refChat, orderBy('created_at'))
+  return onSnapshot(qry,refChat, snapshot => {
     const data = snapshot.docs.map(doc => {
       return {
         id: doc.id,
