@@ -5,7 +5,7 @@ import {APIKEY,
   APPID,
   MESSAGINGSENDERID,
   MASUREMENTID,
-} from './../config.js'
+} from '../config.js'
 import { initializeApp } from "firebase/app"
 import { getFirestore } from "firebase/firestore"
 import { getAuth } from "firebase/auth"

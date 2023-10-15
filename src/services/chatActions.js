@@ -1,5 +1,5 @@
 import {BDNAME} from './../config'
-import {db} from "./firebase.mjs"
+import {db} from "./firebase.js"
 import {
   collection,
   getDocs,
