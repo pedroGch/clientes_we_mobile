@@ -2,7 +2,8 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,node,vuejs,visualstudiocode
 
 .config.js
-
+.conf.js
+.conf
 ### macOS ###
 # General
 .DS_Store
