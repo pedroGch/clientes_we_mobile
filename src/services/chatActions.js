@@ -34,6 +34,7 @@ export  function loadSnapshot (callback){
     const data = snapshot.docs.map(doc => {
       return {
         id: doc.id,
+        userId: doc.data().userId,
         mensaje: doc.data().mensaje,
         usuario: doc.data().usuario,
         fecha_mensaje: doc.data().created_at
