@@ -26,6 +26,7 @@ export default {
       this.loadingRegistro = true
       try {
         await register({...this.nuevoUsuario})
+        this.$router.push('/chat')
       } catch (error) {
         console.log(error)
       }
