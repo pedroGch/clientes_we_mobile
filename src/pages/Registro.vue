@@ -49,7 +49,7 @@ export default {
                 </div> -->
 
                 <div class="relative mb-6" data-te-input-wrapper-init>
-                    <BaseInput type="email" name="user_email" v-model="nuevoUsuario.email"/>
+                    <BaseInput type="email" :disabled="loadingRegistro" name="user_email" v-model="nuevoUsuario.email"/>
                     <BaseLabel for="user_email">Email</BaseLabel>
                 </div>
 
@@ -59,7 +59,7 @@ export default {
                 </div> -->
 
                 <div class="relative mb-6" data-te-input-wrapper-init>
-                    <BaseInput type="password" name="password" v-model="nuevoUsuario.password"/>
+                    <BaseInput type="password" :disabled="loadingRegistro" name="password" v-model="nuevoUsuario.password"/>
                     <BaseLabel for="password">Contraseña</BaseLabel>
                 </div>
 
