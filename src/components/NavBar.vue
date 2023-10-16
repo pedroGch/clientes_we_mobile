@@ -1,8 +1,21 @@
 <script>
-   export default {
-    name: "NavBar",
+import { subscribeToAuth } from '../services/auth';
 
+export default {
+    name: "NavBar",
+    data() {
+    return {
+      id: null,
+      usuario: null,
+    }
+  },
+    mounted() {
+        subscribeToAuth(usuario => {
+            this.usuario = {...usuario};
+        })
+    },
 }
+
 </script>
 <template>
   <header class="flex gap-8 items-center p-4 bg-principal text-white justify-between">
@@ -25,17 +38,28 @@
             <router-link to="/chat">Chat</router-link>
           </li>
           <!-- INICIO Botones que serán visibles cuando NO haya un usuario logueado -->
-          <li>
-            <router-link to="/registro">Registro</router-link>
-          </li>
-          <li>
-            <router-link to="/iniciar-sesion">Iniciar Sesión</router-link>
-          </li>
-          <!-- INICIO Botones que serán visibles cuando NO haya un usuario logueado -->
+          <template v-if="usuario.id === null">
+            <li>
+              <router-link to="/registro">Registro</router-link>
+            </li>
+            <li>
+              <router-link to="/iniciar-sesion">Iniciar Sesión</router-link>
+            </li>
+          </template>
+          <!-- FIN Botones que serán visibles cuando NO haya un usuario logueado -->
           <!-- INICIO Botones que serán visibles cuando SI haya un usuario logueado -->
-          <li>
-            <router-link to="/">Nombre Usuario</router-link>
-          </li>
+          <template v-else>
+            <li>
+              <router-link to="/">Mi perfil</router-link>
+            </li>
+            <li>
+              <form action="">
+                <button type="submit">Usuario (Cerrar sesión)</button>
+              </form>
+            </li>
+          </template>
+          <!-- FIN Botones que serán visibles cuando SI haya un usuario logueado -->
+
         </ul>
       </div>
 
