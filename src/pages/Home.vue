@@ -58,6 +58,9 @@ export default {
             <p class="p-4 text-lg text-gray-700">Explorá entre las diferentes opciones según complejidad y específicamente
               creados para niños.</p>
 
+            <p class="p-4 text-lg text-gray-700">Recordá que nuestros cursos están diseñados para enriquecer tu vida, ayudándote a explorar tu creatividad, encontrar la serenidad y conectarte con tu fluidez interior. ¡No dudes en inscribirte en el curso que más te llame la atención y comenzar tu viaje con Dhara!
+</p>
+
             <BaseButton>
               <router-link to="/cursos">ver cursos</router-link>
             </BaseButton>
