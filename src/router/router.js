@@ -7,6 +7,7 @@ import Registro from '../pages/registro.vue';
 import IniciarSesion from '../pages/IniciarSesion.vue';
 import PerfilAdmin from '../pages/PerfilAdmin.vue';
 import PerfilUsuario from '../pages/PerfilUsuario.vue';
+import ChatPrivado from '../pages/ChatPrivado.vue';
 import { createRouter, createWebHashHistory } from 'vue-router'; // Importamos el router de Vue
 import { subscribeToAuth } from '../services/auth';
 
@@ -24,6 +25,7 @@ const routes = [
   {path: '/iniciar-sesion',       component: IniciarSesion},
   {path: '/perfil-admin',         component: PerfilAdmin, meta:{requiresAuth:true}},
   {path: '/perfil-usuario/:id',   component: PerfilUsuario, meta:{requiresAuth:true}},
+  {path: '/usuario/:id/chat',     component: ChatPrivado, meta:{requiresAuth:true}},
 ];
 
 
