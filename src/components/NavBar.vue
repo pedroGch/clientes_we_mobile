@@ -1,5 +1,5 @@
 <script>
-import { subscribeToAuth } from '../services/auth';
+import { subscribeToAuth, logout } from '../services/auth';
 
 export default {
     name: "NavBar",
@@ -11,11 +11,18 @@ export default {
       },
     }
   },
-    mounted() {
-        subscribeToAuth(usuario => {
-            this.usuario = {...usuario};
-        })
-    },
+  methods:{
+    cerrarSesion(){
+      logout().then(() =>{
+        this.$router.push('/')
+      })
+    }
+  },
+  mounted() {
+    subscribeToAuth(usuario => {
+        this.usuario = {...usuario};
+    })
+  },
 }
 
 </script>
@@ -55,8 +62,8 @@ export default {
               <router-link to="/">Mi perfil</router-link>
             </li>
             <li>
-              <form action="">
-                <button type="submit">Usuario (Cerrar sesión)</button>
+              <form action="#" @submit.prevent="cerrarSesion">
+                <button type="submit">{{usuario.email}} (Cerrar sesión)</button>
               </form>
             </li>
           </template>

@@ -89,7 +89,7 @@ export function subscribeToAuth(observer) {
     notify(observer);
 
     return () => {
-      observers = observers.filter(obs = obs !== observer)
+      observers = observers.filter(obs => obs !== observer)
     }
 }
 
