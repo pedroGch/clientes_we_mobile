@@ -59,7 +59,7 @@ export default {
           <!-- INICIO Botones que serán visibles cuando SI haya un usuario logueado -->
           <template v-else>
             <li>
-              <router-link to="/">Mi perfil</router-link>
+              <router-link to="/perfil-admin">Mi perfil</router-link>
             </li>
             <li>
               <form action="#" @submit.prevent="cerrarSesion">
