@@ -11,8 +11,10 @@ export default {
   },
   data() {
     return {
-      id: null,
-      usuario: null,
+      usuario: {
+        id: '',
+        email: ''
+      },
     }
   },
   mounted() {

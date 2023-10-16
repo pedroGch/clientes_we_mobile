@@ -5,8 +5,10 @@ export default {
     name: "NavBar",
     data() {
     return {
-      id: null,
-      usuario: null,
+      usuario: {
+        id: '',
+        email: ''
+      },
     }
   },
     mounted() {
