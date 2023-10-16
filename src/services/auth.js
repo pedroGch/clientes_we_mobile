@@ -2,6 +2,7 @@
 import { async } from '@firebase/util';
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { auth } from './firebase.js';
+import {crearPerfilDeUsuario} from './usuarios'
 
 let userData = {
     id: null,
@@ -21,6 +22,7 @@ if (localStorage.getItem('user')){
 export async function register({email, password}) {
   try {
     const userCredentials = await createUserWithEmailAndPassword(auth, email, password)
+    crearPerfilDeUsuario(userCredentials.user.uid, {email})
     return {
       id : userCredentials.user.uid,
       email: userCredentials.user.email
