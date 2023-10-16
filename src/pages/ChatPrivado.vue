@@ -86,11 +86,11 @@ export default{
                         :class="
                           {
                             'bg-gray-100': mensaje.senderId !== authUsuario.id,
-                            'bg-green-200': ensaje.senderId === authUsuario.id,
+                            'bg-green-200': mensaje.senderId === authUsuario.id,
                           }"
                       >
                         <div class="p-2 my-3">
-                          {{mensaje.mensaje}}
+                          {{mensaje.message}}
                         </div>
                         <div class="text-right">{{formatoDia(mensaje.created_at || 'enviado...')}}</div>
                       </div>

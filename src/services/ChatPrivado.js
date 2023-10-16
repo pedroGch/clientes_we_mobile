@@ -9,7 +9,7 @@ const privateChatRefCache = {};
  * @returns {Promise}
  */
 export async function enviarMensajePrivado({senderId, receiverId, message}) {
-    const privateChatDoc = await getPrivateChatDoc({senderId, receiverId});
+    const privateChatDoc = await getPrivateChatDoc(senderId, receiverId);
 
     const messagesRef = collection(db, `chat-privado/${privateChatDoc.id}/mensajes`);
 
@@ -56,8 +56,8 @@ export async function suscribirAChatPrivado({senderId, receiverId}, callback) {
  * @param {{senderId: string, receiverId: string}} users
  * @returns {Promise<DocumentReference>}
  */
-async function getPrivateChatDoc({senderId, receiverId}) {
-    const cachedRef = getFromCache({senderId, receiverId});
+async function getPrivateChatDoc(senderId, receiverId) {
+    const cachedRef = getFromCache(senderId, receiverId);
     if(cachedRef) {
       return cachedRef;
     }
@@ -94,10 +94,10 @@ function addToCache({senderId, receiverId}, value) {
     privateChatRefCache[getKeyForCache()] = value;
 }
 
-function getFromCache({senderId, receiverId}) {
+function getFromCache(senderId, receiverId) {
     return privateChatRefCache[getKeyForCache()] || null;
 }
 
-function getKeyForCache({senderId, receiverId}) {
+function getKeyForCache(senderId, receiverId) {
     return senderId + receiverId;
 }
