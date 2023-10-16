@@ -5,6 +5,7 @@ import Loader from "../components/Loader.vue";
 import BaseButton from "../components/BaseButton.vue";
 import BaseLabel from "../components/BaseLabel.vue";
 import BaseInput from "../components/BaseInput.vue";
+import BaseH2 from "../components/BaseH2.vue";
 import { subscribeToAuth } from '../services/auth';
 
 export default{
@@ -14,6 +15,7 @@ export default{
     BaseButton,
     BaseLabel,
     BaseInput,
+    BaseH2,
 },
 
   data(){
@@ -76,7 +78,7 @@ export default{
 
 <template>
   <div>
-    <h2>Chat</h2>
+    <BaseH2>Chat</BaseH2>
     <template v-if="!isLoading">
       <div class="flex gap-3">
         <div v-for="(c,i) in chats" :key="i" class="flex flex-col  bg-slate-200 p-4 my-2 w-[300px] h-[305px]">

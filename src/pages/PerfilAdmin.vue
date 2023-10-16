@@ -7,6 +7,6 @@ export default {
 
 <template>
   <div>
-    <h1>Perfíl admin</h1>
+    <h2>Perfíl admin</h2>
   </div>
 </template>

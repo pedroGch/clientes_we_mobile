@@ -1,10 +1,14 @@
 <script>
 import {obtenerUsuarioPorId} from '../services/usuarios'
 import Loader from "../components/Loader.vue";
+import BaseH2 from "../components/BaseH2.vue";
 
 export default{
   name: 'perfilDeUsuario',
-  components: {Loader},
+  components: {
+    Loader,
+    BaseH2,
+  },
   data() {
     return{
       cargando: true,
@@ -28,7 +32,7 @@ export default{
       <Loader  />
     </template>
     <template v-else>
-      <h1>perfil de {{usuario.email}}</h1>
+      <BaseH2>perfil de {{usuario.email}}</BaseH2>
     </template>
   </div>
 </template>
