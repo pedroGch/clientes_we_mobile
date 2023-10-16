@@ -32,9 +32,9 @@ export default{
       unsuscribeAuth: () => {},
     }
   },
-  mounted(){
+  async mounted(){
     this.isLoading = true
-    this.unsuscribeChat = loadSnapshot(chats => {
+    this.unsuscribeChat = await loadSnapshot(chats => {
       this.chats = chats;
       this.isLoading = false
     })
@@ -58,9 +58,14 @@ export default{
       return dateToString(date)
     },
     enviarMensaje(){
+      this.isLoading = true
       saveMessage({
+        userId: this.usuario.id,
         usuario: this.usuario.email,
         mensaje: this.nuevoMensaje.mensaje
+      }).then(() =>{
+        this.nuevoMensaje.mensaje = ''
+        this.isLoading = false
       })
     }
 
@@ -79,11 +84,19 @@ export default{
             <img src="../../public/img/avatar.jpeg" class="w-24 h-24 rounded-full mx-auto shadow-xl" alt="imagen de usuario">
           </div>
           <div class="mt-6  mb-4 px-6 mx-auto ">
-            <p class="text-2xl font-black capitalize"> {{ c.usuario }} </p>
+            <p class="text-2xl font-black capitalize">
+              <router-link :to="`/perfil-usuario/${c.userId}`">
+                {{ c.usuario }}
+              </router-link>
+            </p>
           </div>
           <div class="mt-4 mb-10 px-6 mx-auto">
-            <BaseButton @click="abrirChat(c)">Ingresar al chat
-            </BaseButton>
+            <!-- <BaseButton @click="abrirChat(c)">Ingresar al chat
+            </BaseButton> -->
+            <router-link :to="`/usuario/${c.userId}/chat`">
+              <BaseButton>Ingresar al chat
+              </BaseButton>
+            </router-link>
           </div>
         </div>
       </div>
@@ -114,10 +127,10 @@ export default{
                 </div>
             </div>
             <div class="modal-footer px-6 w-[100%]">
-              <form action="" class="flex justify-between" >
+              <form action="" class="flex justify-between" @submit.prevent="enviarMensaje">
                     <BaseLabel for="message">Mensaje</BaseLabel>
                     <BaseInput type="text" placeholder="Ingresá tu mensaje" id="message" name="message" v-model="nuevoMensaje.mensaje" />
-                    <BaseButton></BaseButton>
+                    <BaseButton ></BaseButton>
                   </form>
             </div>
         </div>
