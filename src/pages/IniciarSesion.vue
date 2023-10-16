@@ -24,8 +24,8 @@ export default {
     loguear(){
       login({...this.formulario})
         .then(usuario => {
-          this.$emit('login', {...usuario})
-          console.log(usuario)
+          //this.$emit('login', {...usuario})
+          this.$router.push('/chat')
         })
         .catch((err) => { alert('UPS algo no va bien')})
         .finally(()=>{
