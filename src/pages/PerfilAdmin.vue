@@ -3,7 +3,7 @@ import { obtenerUsuarioPorId } from '../services/usuarios';
 import BaseH2 from "../components/BaseH2.vue";
 import BaseButton from "../components/BaseButton.vue";
 import { subscribeToAuth } from '../services/auth';
-import { cargarProductos } from '../services/productos';
+import { cargarProductos, deleteProducto } from '../services/productos';
 
 export default {
   name: 'PerfilAdmin',
@@ -69,7 +69,7 @@ export default {
 
           <tr class="border-2" v-for="p in productos" :key="p.id">
             <td class="p-3 border-2"><p class="titulo">{{p.nombre}}</p></td>
-            <td class="text-sm p-3 border-2">{{p.precio}}</td>
+            <td class="text-sm p-3 border-2">{{p.descripcion}}</td>
             <td class="p-3 border-2">
               <router-link :to="`/editar-curso/${p.id}`">
                 <BaseButton type="submit">Editar</BaseButton>
