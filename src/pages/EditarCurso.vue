@@ -76,22 +76,26 @@ export default {
       </div>
       <div>
         <form action="#" method="POST" id="form-edit" @submit.prevent="submitForm">
-          <BaseLabel for="titulo"></BaseLabel>
-          <BaseInput type="text" name="titulo" id="titulo" placeholder="Título" v-model="curso.titulo" />
-          <p v-if="errors.titulo" class="error-message">{{ errors.titulo }}</p>
-
-          <BaseLabel for="descripcion"></BaseLabel>
-          <BaseInput type="text" name="descripcion" id="descripcion" v-model="curso.descripcion" />
-          <p v-if="errors.descripcion" class="error-message">{{ errors.descripcion }}</p>
-
-          <BaseLabel for="precio"></BaseLabel>
-          <BaseInput type="number" name="precio" id="precio" v-model="curso.precio" />
-          <p v-if="errors.precio" class="error-message">{{ errors.precio }}</p>
-
-          <BaseLabel for="cupo"></BaseLabel>
-          <BaseInput type="number" name="cupo" id="cupo" v-model="curso.cupo" />
-          <p v-if="errors.cupo" class="error-message">{{ errors.cupo }}</p>
-
+          <div class="relative mb-6">
+            <label for="titulo">Título</label>
+            <BaseInput type="text" name="titulo" id="titulo" v-model="curso.titulo" />
+            <p v-if="errors.titulo" class="error-message">{{ errors.titulo }}</p>
+          </div>
+          <div class="relative mb-6">
+            <label for="descripcion">Descripción</label>
+            <BaseInput type="text" name="descripcion" id="descripcion" v-model="curso.descripcion" />
+            <p v-if="errors.descripcion" class="error-message">{{ errors.descripcion }}</p>
+          </div>
+          <div class="relative mb-6">
+            <label for="precio">Precio</label>
+            <BaseInput type="number" name="precio" id="precio" v-model="curso.precio" />
+            <p v-if="errors.precio" class="error-message">{{ errors.precio }}</p>
+          </div>
+          <div class="relative mb-6">
+            <label for="cupo">Cupo</label>
+            <BaseInput type="number" name="cupo" id="cupo" v-model="curso.cupo" />
+            <p v-if="errors.cupo" class="error-message">{{ errors.cupo }}</p>
+          </div>
           <BaseButton type="submit">Editar</BaseButton>
         </form>
       </div>
