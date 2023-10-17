@@ -19,6 +19,7 @@ export default {
       formulario: {
         email: '',
         password: '',
+        rol: ''
       },
       errors: {
         email: '',

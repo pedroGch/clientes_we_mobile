@@ -13,6 +13,7 @@ export async function obtenerUsuarioPorId(id) {
   return {
       id: docSnapshot.id,
       email: docSnapshot.data().email,
+      rol: docSnapshot.data().rol
   }
 }
 

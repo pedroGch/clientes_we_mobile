@@ -7,6 +7,7 @@ import {crearPerfilDeUsuario} from './usuarios'
 let userData = {
     id: null,
     email: null,
+    rol: null
 }
 let observers = [];
 
@@ -16,16 +17,17 @@ if (localStorage.getItem('user')){
 
 /**
  *
- * @param {{email:string, password:string}} user
+ * @param {{email:string, password:string, rol:string}} user
  * @return {Promise}
  */
-export async function register({email, password}) {
+export async function register({email, password, rol}) {
   try {
     const userCredentials = await createUserWithEmailAndPassword(auth, email, password)
-    crearPerfilDeUsuario(userCredentials.user.uid, {email})
+    crearPerfilDeUsuario(userCredentials.user.uid, {email, rol})
     return {
       id : userCredentials.user.uid,
-      email: userCredentials.user.email
+      email: userCredentials.user.email,
+      rol: userCredentials.user.rol
     }
   } catch (error) {
     return {
@@ -41,6 +43,7 @@ onAuthStateChanged(auth, user => {
     setUserData({
       id: user.uid,
       email: user.email,
+      rol: user.rol
     })
     localStorage.setItem('user', JSON.stringify('user'))
   }else{
@@ -55,7 +58,7 @@ onAuthStateChanged(auth, user => {
  * @param {{email: string, password: string}} user
  * @return {Promise}
  */
-export function login({email, password}) {
+export async function login({email, password}) {
   return signInWithEmailAndPassword(auth, email, password)
         .then(userCredentials => {
             return {...userData};
@@ -80,7 +83,7 @@ export function logout() {
  * Agrega un observer (callback) para ser notificado de los cambios en el estado de autenticación.
  * El observer debe ser una función que reciba como argumento un objeto y no retorne nada.
  *
- * @param {({id: null|string, email: null|string}) => void} observer
+ * @param {({id: null|string, email: null|string, rol: null|string}) => void} observer
  * @returns {() => void}
  */
 export function subscribeToAuth(observer) {
@@ -127,6 +130,7 @@ function clearUserData() {
     setUserData({
         id: null,
         email: null,
+        rol:null
     });
 }
 

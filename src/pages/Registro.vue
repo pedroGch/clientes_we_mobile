@@ -19,6 +19,7 @@ export default {
       nuevoUsuario: {
         email:'',
         password:'',
+        rol: 'usuario'
       },
       errors: {
         email: '',

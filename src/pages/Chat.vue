@@ -25,7 +25,8 @@ export default{
       chatPersonal:{},
       usuario: {
         id: null,
-        email:null
+        email:null,
+        rol: null
       },
       nuevoMensaje: {
         mensaje: ''

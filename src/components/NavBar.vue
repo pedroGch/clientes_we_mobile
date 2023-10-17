@@ -1,14 +1,17 @@
 <script>
 import { subscribeToAuth, logout } from '../services/auth';
+import { obtenerUsuarioPorId } from '../services/usuarios';
 
 export default {
     name: "NavBar",
     data() {
     return {
       usuario: {
-        id: '',
-        email: ''
+        id:'',
+        email: '',
+        rol: ''
       },
+      usuarioLog: {}
     }
   },
   methods:{
@@ -18,10 +21,11 @@ export default {
       })
     }
   },
-  mounted() {
+  async mounted() {
     subscribeToAuth(usuario => {
-        this.usuario = {...usuario};
+      this.usuario = {...usuario};
     })
+    this.usuarioLog = await obtenerUsuarioPorId(this.usuario.id)
   },
 }
 
@@ -58,9 +62,16 @@ export default {
           <!-- FIN Botones que serán visibles cuando NO haya un usuario logueado -->
           <!-- INICIO Botones que serán visibles cuando SI haya un usuario logueado -->
           <template v-else>
-            <li>
-              <router-link to="/perfil-admin">Panel Admin</router-link>
-            </li>
+            <template v-if="usuarioLog.rol === 'admin' ">
+              <li>
+                <router-link to="/perfil-admin">Panel Admin</router-link>
+              </li>
+            </template>
+            <template v-else>
+              <li>
+                <router-link :to="`/perfil-usuario/${usuario.id}`">Panel usuario</router-link>
+              </li>
+            </template>
             <li>
               <form action="#" @submit.prevent="cerrarSesion">
                 <button type="submit">{{usuario.email}} (Cerrar sesión)</button>
