@@ -1,7 +1,7 @@
 import {db} from "./firebase.js"
 import {
   collection,
-  getDocs,
+  getDoc,
   onSnapshot,
   addDoc,
   updateDoc,
@@ -32,15 +32,16 @@ export  function cargarProductos (callback){
 }
 
 export async function obtenerProductoPorId(id) {
+  console.log(`productos/${id}`)
   const refPrudcto = doc(db, `productos/${id}`);
-  const docSnapshot = await getDocs(refPrudcto);
+  const docSnapshot = await getDoc(refPrudcto);
 
   return {
     id: docSnapshot.id,
-    nombre: doc.data().nombre,
-    descripcion: doc.data().descripcion,
-    precio: doc.data().precio,
-    cupo: doc.data().cupo
+    nombre: docSnapshot.data().nombre,
+    descripcion: docSnapshot.data().descripcion,
+    precio: docSnapshot.data().precio,
+    cupo: docSnapshot.data().cupo
   }
 }
 
