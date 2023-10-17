@@ -64,7 +64,7 @@ export default {
     submitForm() {
       if (this.validateForm()) {
         editarProducto(this.curso)
-        this.$route.push('/perfil-admin')
+        this.$router.push('/perfil-admin')
       }
     }
   },
