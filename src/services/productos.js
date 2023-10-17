@@ -44,7 +44,7 @@ export async function obtenerProductoPorId(id) {
   }
 }
 
-export async function deleteProductos(id){
+export async function deleteProducto(id){
   await deleteDoc(doc(db, 'productos' , id))
 }
 

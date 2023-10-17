@@ -2,6 +2,8 @@
 import { obtenerUsuarioPorId } from '../services/usuarios';
 import BaseH2 from "../components/BaseH2.vue";
 import BaseButton from "../components/BaseButton.vue";
+import { subscribeToAuth } from '../services/auth';
+import { cargarProductos } from '../services/productos';
 
 export default {
   name: 'PerfilAdmin',
@@ -9,19 +11,38 @@ export default {
     BaseButton,
     BaseH2,
   },
+  props:{
+    id: String
+  },
   data() {
     return {
       cargando: true,
       usuario: {
         id: '',
         email: ''
-      }
+      },
+      usuarioLog: {
+        id: '',
+        email: ''
+      },
+      productos: [],
+      unsuscribeProductos: () => {},
     }
   },
   async mounted() {
+    subscribeToAuth(usuario => {
+      this.usuarioLog = {...usuario};
+    })
     this.cargando = true
-    this.usuario = await obtenerUsuarioPorId(this.$route.params.id)
+    this.usuario = await obtenerUsuarioPorId(this.usuarioLog.id)
     this.cargando = false
+
+    cargarProductos(productos => {this.productos = productos} )
+  },
+  methods:{
+    eliminarProducto(id){
+      deleteProducto(id)
+    }
   }
 }
 </script>
@@ -46,20 +67,20 @@ export default {
         </thead>
         <tbody class="border-2">
 
-          <tr class="border-2">
-            <td class="p-3 border-2"></td>
-            <td class="text-sm p-3 border-2"></td>
+          <tr class="border-2" v-for="p in productos" :key="p.id">
+            <td class="p-3 border-2"><p class="titulo">{{p.nombre}}</p></td>
+            <td class="text-sm p-3 border-2">{{p.precio}}</td>
             <td class="p-3 border-2">
-              <form action="" method="GET">
+              <router-link :to="`/editar-curso/${p.id}`">
                 <BaseButton type="submit">Editar</BaseButton>
-              </form>
+              </router-link>
 
-              <BaseButton type="button" >Eliminar</BaseButton>
+              <BaseButton type="button" @click="eliminarProducto(p.id)">Eliminar</BaseButton>
 
-              <form action="" method="GET">
-                <BaseButton type="submit">Leer
+              <router-link :to="`/detalles-curso/${p.id}`">
+                <BaseButton type="submit">Ver
                   más</BaseButton>
-              </form>
+              </router-link>
             </td>
           </tr>
 
