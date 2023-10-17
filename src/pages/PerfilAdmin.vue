@@ -1,7 +1,7 @@
 <script>
 import { obtenerUsuarioPorId } from '../services/usuarios';
-import { BaseH2 } from '../components/BaseH2.vue';
-import { BaseButton } from '../components/BaseButton.vue';
+import BaseH2 from "../components/BaseH2.vue";
+import BaseButton from "../components/BaseButton.vue";
 
 export default {
   name: 'PerfilAdmin',
