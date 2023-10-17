@@ -32,7 +32,9 @@ export default {
           <p class="text-gray-700 text-base">
             Stock disponible: 50 plazas
           </p>
-          <BaseButton>Ver más</BaseButton>
+          <BaseButton>
+              <router-link to="/detalles-curso">Ver más</router-link>
+            </BaseButton>
         </div>
     </div>
 
@@ -46,7 +48,9 @@ export default {
           <p class="text-gray-700 text-base">
             Stock disponible: 40 plazas
           </p>
-          <BaseButton>Ver más</BaseButton>
+          <BaseButton>
+              <router-link to="/detalles-curso">Ver más</router-link>
+            </BaseButton>
         </div>
     </div>
 
@@ -60,7 +64,9 @@ export default {
           <p class="text-gray-700 text-base">
             Stock disponible: 30 plazas
           </p>
-          <BaseButton>Ver más</BaseButton>
+          <BaseButton>
+              <router-link to="/detalles-curso">Ver más</router-link>
+            </BaseButton>
         </div>
     </div>
 
@@ -74,7 +80,9 @@ export default {
           <p class="text-gray-700 text-base">
             Stock disponible: Ilimitado
           </p>
-          <BaseButton>Ver más</BaseButton>
+          <BaseButton>
+              <router-link to="/detalles-curso">Ver más</router-link>
+            </BaseButton>
         </div>
     </div>
     </div>

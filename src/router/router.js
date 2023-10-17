@@ -2,6 +2,7 @@
 
 import Home from '../pages/Home.vue';
 import Cursos from '../pages/Cursos.vue';
+import DetalleCurso from '../pages/DetalleCurso.vue';
 import Chat from '../pages/Chat.vue';
 import Registro from '../pages/registro.vue';
 import IniciarSesion from '../pages/IniciarSesion.vue';
@@ -20,6 +21,7 @@ import { subscribeToAuth } from '../services/auth';
 const routes = [
   {path: '/',                     component: Home},
   {path: '/cursos',               component: Cursos},
+  {path: '/detalles-curso',        component: DetalleCurso},
   {path: '/chat',                 component: Chat, meta:{requiresAuth:true}},
   {path: '/registro',             component: Registro},
   {path: '/iniciar-sesion',       component: IniciarSesion},
