@@ -62,10 +62,9 @@ export default {
       return Object.keys(this.errors).length === 0;
     },
     submitForm() {
-      console.log(`estoy en la funcion validar`)
       if (this.validateForm()) {
-        console.log(`validar ok`)
         editarProducto(this.curso)
+        this.$route.push('/perfil-admin')
       }
     }
   },
