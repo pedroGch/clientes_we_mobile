@@ -3,6 +3,7 @@ import BaseH2 from '../components/BaseH2.vue';
 import BaseButton from '../components/BaseButton.vue';
 import BaseLabel from '../components/BaseLabel.vue';
 import BaseInput from '../components/BaseInput.vue';
+import { obtenerProductoPorId, editarProducto } from '../services/productos';
 
 export default {
   name: "EditarCurso",
@@ -17,25 +18,29 @@ export default {
       cargando: true,
       curso: {
         id: '',
-        titulo: '',
+        nombre: '',
         descripcion: '',
         precio: '',
         cupo: ''
       },
       errors: {
-        titulo: '',
+        nombre: '',
         descripcion: '',
         precio: '',
         cupo: ''
-      }
+      },
     }
+
+  },
+  async mounted(){
+    this.curso = await obtenerProductoPorId(this.$route.params.id)
   },
   methods: {
     validateForm() {
       this.errors = {};
 
-      if (!this.curso.titulo) {
-        this.errors.titulo = 'El título es requerido.';
+      if (!this.curso.nombre) {
+        this.errors.nombre = 'El título es requerido.';
       }
 
       if (!this.curso.descripcion) {
@@ -57,8 +62,10 @@ export default {
       return Object.keys(this.errors).length === 0;
     },
     submitForm() {
+      console.log(`estoy en la funcion validar`)
       if (this.validateForm()) {
-        // Realiza el envío del formulario o las acciones necesarias
+        console.log(`validar ok`)
+        editarProducto(this.curso)
       }
     }
   },
@@ -77,9 +84,9 @@ export default {
       <div>
         <form action="#" method="POST" id="form-edit" @submit.prevent="submitForm">
           <div class="relative mb-6">
-            <label for="titulo">Título</label>
-            <BaseInput type="text" name="titulo" id="titulo" v-model="curso.titulo" />
-            <p v-if="errors.titulo" class="error-message">{{ errors.titulo }}</p>
+            <label for="nombre">Título</label>
+            <BaseInput type="text" name="nombre" id="nombre" v-model="curso.nombre" />
+            <p v-if="errors.nombre" class="error-message">{{ errors.nombre }}</p>
           </div>
           <div class="relative mb-6">
             <label for="descripcion">Descripción</label>
