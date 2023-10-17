@@ -1,13 +1,23 @@
 <script>
 import BaseH2 from '../components/BaseH2.vue';
 import BaseButton from '../components/BaseButton.vue';
+import { obtenerProductoPorId } from '../services/productos';
 
 export default {
   name:"DetalleCurso",
   components: {
     BaseH2,
     BaseButton,
+  },
+  data(){
+    return{
+      producto: []
+    }
+  },
+  async mounted(){
+    this.producto = await obtenerProductoPorId(this.$route.params.id)
   }
+
 }
 </script>
 
@@ -25,13 +35,13 @@ export default {
           <img src="../../public/img/curso1.jpg" alt="Imagen" class="lg:w-1/2">
 
           <!-- Texto al lado de la imagen -->
-          <div class="lg:w-1/2 p-4 p-16">
-            <h3><BaseH2>Curso 1: "Introducción al Arte de los Mandalas"</BaseH2></h3>
-            <p class="text-lg text-gray-700">Descripción: Este curso te llevará a un viaje profundo en el fascinante mundo de los mandalas. Aprenderás las técnicas básicas de creación de mandalas, explorarás su significado simbólico y descubrirás cómo usarlos como herramienta de relajación y meditación. Este curso es ideal para principiantes y amantes del arte que deseen explorar su creatividad interior.</p>
+          <div class="lg:w-1/2 p-4 ">
+            <h3><BaseH2>{{producto.nombre}}</BaseH2></h3>
+            <p class="text-lg text-gray-700">Descripción: {{producto.descripcion}}</p>
             <hr class="m-2">
-            <p class="text-lg text-gray-700"><strong>Stock disponible:</strong> 50 plazas</p>
+            <p class="text-lg text-gray-700"><strong>Stock disponible:</strong> {{producto.cupo}} plazas</p>
             <hr class="m-2">
-            <p class="text-lg text-gray-700"><strong>Precio:</strong> $49.99</p>
+            <p class="text-lg text-gray-700"><strong>Precio:</strong> ${{producto.precio}}</p>
             <hr class="m-2">
 
             <BaseButton>
