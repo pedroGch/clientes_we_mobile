@@ -78,10 +78,10 @@ export default{
 
 <template>
   <div>
-    <BaseH2>Chat</BaseH2>
+    <BaseH2 class="text-center my-6">Chat</BaseH2>
     <template v-if="!isLoading">
-      <div class="flex gap-3">
-        <div v-for="(c,i) in chats" :key="i" class="flex flex-col  bg-slate-200 p-4 my-2 w-[300px] h-[305px]">
+      <div class="flex gap-3  flex-wrap justify-center">
+        <div v-for="(c,i) in chats" :key="i" class="flex flex-col bg-slate-200 p-4 my-2 w-[300px] h-[305px]">
           <div class="">
             <img src="../../public/img/avatar.jpeg" class="w-24 h-24 rounded-full mx-auto shadow-xl" alt="imagen de usuario">
           </div>
