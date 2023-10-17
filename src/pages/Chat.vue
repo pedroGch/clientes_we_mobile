@@ -7,6 +7,7 @@ import BaseLabel from "../components/BaseLabel.vue";
 import BaseInput from "../components/BaseInput.vue";
 import BaseH2 from "../components/BaseH2.vue";
 import { subscribeToAuth } from '../services/auth';
+import { obtenerAdmin, obtenerUsuarioPorId } from '../services/usuarios';
 
 export default{
   name:"chat",
@@ -23,11 +24,13 @@ export default{
       isLoading: true,
       chats:[],
       chatPersonal:{},
+      admin: {},
       usuario: {
         id: null,
         email:null,
         rol: null
       },
+      usuarioLog: {},
       nuevoMensaje: {
         mensaje: ''
       },
@@ -42,6 +45,9 @@ export default{
       this.isLoading = false
     })
     this.unsuscribeAuth = subscribeToAuth(nuevoUsuario => this.usuario = {...nuevoUsuario})
+
+    await obtenerAdmin().then(id => this.admin = id[0].id)
+    this.usuarioLog = await obtenerUsuarioPorId(this.usuario.id)
   },
   unmounted(){
     this.unsuscribeAuth()
@@ -82,26 +88,49 @@ export default{
     <BaseH2 class="text-center my-6">Chat</BaseH2>
     <template v-if="!isLoading">
       <div class="flex gap-3  flex-wrap justify-center">
-        <div v-for="(c,i) in chats" :key="i" class="flex flex-col bg-slate-200 p-4 my-2 w-[300px] h-[305px]">
-          <div class="">
-            <img src="../../public/img/avatar.jpeg" class="w-24 h-24 rounded-full mx-auto shadow-xl" alt="imagen de usuario">
-          </div>
-          <div class="mt-6  mb-4 px-6 mx-auto ">
-            <p class="text-2xl font-black capitalize">
-              <router-link :to="`/perfil-usuario/${c.userId}`">
-                {{ c.usuario }}
+
+        <template v-if="usuarioLog.rol === 'usuario' ">
+          <div  class="flex flex-col bg-slate-200 p-4 my-2 w-[300px] h-[305px]">
+            <div class="">
+              <img src="../../public/img/avatar.jpeg" class="w-24 h-24 rounded-full mx-auto shadow-xl" alt="imagen de usuario">
+            </div>
+            <div class="mt-6  mb-4 px-6 mx-auto ">
+              <p class="text-2xl font-black capitalize">
+                Chatea con un Admin
+              </p>
+            </div>
+            <div class="mt-4 mb-10 px-6 mx-auto">
+              <router-link :to="`/usuario/${admin}/chat`">
+                <BaseButton>Ingresar al chat
+                </BaseButton>
               </router-link>
-            </p>
+            </div>
           </div>
-          <div class="mt-4 mb-10 px-6 mx-auto">
-            <!-- <BaseButton @click="abrirChat(c)">Ingresar al chat
-            </BaseButton> -->
-            <router-link :to="`/usuario/${c.userId}/chat`">
-              <BaseButton>Ingresar al chat
-              </BaseButton>
-            </router-link>
+        </template>
+        <template v-else >
+          <div v-for="(c,i) in chats" :key="i" class="flex flex-col bg-slate-200 p-4 my-2 w-[300px] h-[305px]">
+            <div class="">
+              <img src="../../public/img/avatar.jpeg" class="w-24 h-24 rounded-full mx-auto shadow-xl" alt="imagen de usuario">
+            </div>
+            <div class="mt-6  mb-4 px-6 mx-auto ">
+              <p class="text-2xl font-black capitalize">
+                <router-link :to="`/perfil-usuario/${c.userId}`">
+                  {{ c.usuario }}
+                </router-link>
+              </p>
+            </div>
+            <div class="mt-4 mb-10 px-6 mx-auto">
+              <!-- <BaseButton @click="abrirChat(c)">Ingresar al chat
+              </BaseButton> -->
+              <router-link :to="`/usuario/${c.userId}/chat`">
+                <BaseButton>Ingresar al chat
+                </BaseButton>
+              </router-link>
+            </div>
           </div>
-        </div>
+        </template>
+
+
       </div>
     </template>
     <template v-else>
