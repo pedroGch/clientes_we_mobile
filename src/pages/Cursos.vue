@@ -1,28 +1,58 @@
 <script>
 import BaseH2 from '../components/BaseH2.vue';
 import BaseButton from '../components/BaseButton.vue';
+import { cargarProductos } from '../services/productos';
 
 export default {
-  name:"Cursos",
+  name: "Cursos",
   components: {
     BaseH2,
     BaseButton,
+  },
+  data() {
+    return {
+      productos: []
+    };
+  },
+  mounted() {
+    // Llama a la función cargarProductos para obtener el array de productos
+    cargarProductos(productos => {
+      this.productos = productos;
+    });
   }
-}
+};
+
 </script>
 
 <template>
-<div class="">
+  <div class="">
 
-  <div class="text-center mt-16 mb-16">
-    <BaseH2>Cursos</BaseH2>
-  </div>
+    <div class="text-center mt-16 mb-16">
+      <BaseH2>Cursos</BaseH2>
+    </div>
 
 
-  <div class="mx-auto max-w-screen-xl">
+    <div class="mx-auto max-w-screen-xl">
 
-    <div class="flex flex-wrap justify-around">
-    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+      <div class="flex flex-wrap justify-around">
+        <div>
+          <div class="max-w-sm rounded overflow-hidden shadow-lg" v-for="producto in productos" :key="producto.id">
+            <img class="w-full" src="../../public/img/curso1.jpg" alt="Sunset in the mountains">
+            <div class="px-6 py-4">
+              <div class="font-bold text-xl mb-2">Curso: "{{ producto.nombre }}"</div>
+              <p class="text-gray-700 text-base">
+                Precio: ${{ producto.precio }}
+              </p>
+              <p class="text-gray-700 text-base">
+                Stock disponible: {{ producto.cupo }} plazas
+              </p>
+              <BaseButton>
+                <router-link :to="'/detalles-curso/' + producto.id">Ver más</router-link>
+              </BaseButton>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="max-w-sm rounded overflow-hidden shadow-lg">
       <img class="w-full" src="../../public/img/curso1.jpg" alt="Sunset in the mountains">
       <div class="px-6 py-4">
           <div class="font-bold text-xl mb-2">Curso 1: "Introducción al Arte de los Mandalas"</div>
@@ -36,9 +66,9 @@ export default {
               <router-link to="/detalles-curso">Ver más</router-link>
             </BaseButton>
         </div>
-    </div>
+    </div> -->
 
-    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+        <!-- <div class="max-w-sm rounded overflow-hidden shadow-lg">
       <img class="w-full" src="../../public/img/curso2.jpg" alt="Sunset in the mountains">
       <div class="px-6 py-4">
           <div class="font-bold text-xl mb-2">Curso 2: "Domina el Arte del Dibujo Zentangle"</div>
@@ -52,9 +82,9 @@ export default {
               <router-link to="/detalles-curso">Ver más</router-link>
             </BaseButton>
         </div>
-    </div>
+    </div> -->
 
-    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+        <!-- <div class="max-w-sm rounded overflow-hidden shadow-lg">
       <img class="w-full" src="../../public/img/curso3.jpg" alt="Sunset in the mountains">
       <div class="px-6 py-4">
           <div class="font-bold text-xl mb-2">Curso 3: "Mandalas Terapéuticos: Sanando con el Arte"</div>
@@ -68,9 +98,9 @@ export default {
               <router-link to="/detalles-curso">Ver más</router-link>
             </BaseButton>
         </div>
-    </div>
+    </div> -->
 
-    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+        <!-- <div class="max-w-sm rounded overflow-hidden shadow-lg">
       <img class="w-full" src="../../public/img/curso4.jpg" alt="Sunset in the mountains">
       <div class="px-6 py-4">
           <div class="font-bold text-xl mb-2">Curso 4: "Suscripción Mensual: Meditaciones Guiadas y Bienestar"</div>
@@ -84,14 +114,16 @@ export default {
               <router-link to="/detalles-curso">Ver más</router-link>
             </BaseButton>
         </div>
+    </div> -->
+      </div>
+
+
+      <div class="mt-16 text-center font-tipografiaTitulares font-bold text-2xl">
+        <p>Recuerda que nuestros cursos están diseñados para enriquecer tu vida, ayudándote a explorar tu creatividad,
+          encontrar la serenidad y conectarte con tu fluidez interior. ¡No dudes en inscribirte en el curso que más te
+          llame la atención y comenzar tu viaje con Dhara!</p>
+      </div>
+
     </div>
-    </div>
-
-
-  <div class="mt-16 text-center font-tipografiaTitulares font-bold text-2xl">
-    <p>Recuerda que nuestros cursos están diseñados para enriquecer tu vida, ayudándote a explorar tu creatividad, encontrar la serenidad y conectarte con tu fluidez interior. ¡No dudes en inscribirte en el curso que más te llame la atención y comenzar tu viaje con Dhara!</p>
   </div>
-
-  </div>
-</div>
 </template>
