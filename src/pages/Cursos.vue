@@ -35,6 +35,12 @@ export default {
       <BaseH2>Cursos</BaseH2>
     </div>
 
+    <div class="mb-16 text-center font-tipografiaTitulares font-bold text-2xl lg:px-60">
+      <p>Nuestros cursos están diseñados para enriquecer tu vida, ayudándote a explorar tu creatividad,
+        encontrar la serenidad y conectarte con tu fluidez interior. ¡No dudes en inscribirte en el curso que más te
+        llame la atención y comenzar tu viaje con Dhara!</p>
+    </div>
+
     <template v-if="!isLoading">
       <div class="mx-auto max-w-screen-xl">
         <div class="flex flex-wrap justify-around">
@@ -63,11 +69,7 @@ export default {
       <Loader class="" />
     </template>
 
-    <div class="mt-16 text-center font-tipografiaTitulares font-bold text-2xl">
-      <p>Recuerda que nuestros cursos están diseñados para enriquecer tu vida, ayudándote a explorar tu creatividad,
-        encontrar la serenidad y conectarte con tu fluidez interior. ¡No dudes en inscribirte en el curso que más te
-        llame la atención y comenzar tu viaje con Dhara!</p>
-    </div>
+
 
   </div>
 
