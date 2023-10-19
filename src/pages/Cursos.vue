@@ -35,7 +35,7 @@ export default {
       <BaseH2>Cursos</BaseH2>
     </div>
 
-    <div class="mb-16 text-center font-tipografiaTitulares font-bold text-2xl lg:px-60">
+    <div class="mb-16 text-center font-tipografiaTitulares font-bold lg:text-2xl lg:px-60">
       <p>Nuestros cursos están diseñados para enriquecer tu vida, ayudándote a explorar tu creatividad,
         encontrar la serenidad y conectarte con tu fluidez interior. ¡No dudes en inscribirte en el curso que más te
         llame la atención y comenzar tu viaje con Dhara!</p>

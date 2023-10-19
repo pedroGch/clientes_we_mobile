@@ -39,13 +39,13 @@ export default {
 
       </div>
 
-      <div class="flex">
+      <div class="lg:flex">
 
-        <div class="flex-2">
+        <div class="lg:flex-2">
           <img src="../../public/img/curso2.jpg" alt="Imagen" class="lg:w-2/3 mx-auto mt-6">
         </div>
 
-        <div class="flex-1 px-6">
+        <div class="lg:flex-1 px-6">
           <p class="my-3 mt-6 text-xl">¡Bienvenido <b>{{ usuario.email }}</b>!</p>
 
           <p class="my-3 text-xl">Acordate que tenés a tu disposición el chat para consultarnos todas tus dudas.</p>
