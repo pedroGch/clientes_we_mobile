@@ -16,6 +16,11 @@ import {
 const refChat = collection(db, BDNAME)
 
 
+/**
+ * Agrega un mensaje a la base de datos
+ * @param {*} data
+ * @returns
+ */
 export function saveMessage(data){
   return addDoc(refChat, {
     ...data,
@@ -24,6 +29,7 @@ export function saveMessage(data){
 }
 
 /**
+ * Carga los mensajes de la base de datos y los ordena por fecha
  * @params {() => {}} callback
  * @returns (import('firebase/auth').Unsubscribe)
  */
