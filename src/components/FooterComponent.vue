@@ -6,9 +6,10 @@ export default {
 </script>
 <template>
   <footer class="py-6  bg-principal drop-shadow-xl text-white">
-    <div class="flex mt-4 mx-auto max-w-screen-xl">
+
+    <div class="lg:flex mt-4 mx-auto max-w-screen-xl">
       <h2 class="hidden">Datos alumnos</h2>
-      <div class="flex-1">
+      <div class="ms-20 lg:flex-1">
         <div class="mb-4">
           <h3 class="block mb-2 text-xl font-bold ">Materia:</h3>
           <p class="">Clientes Web Mobile - Parcial 1</p>
@@ -25,7 +26,7 @@ export default {
         <div class="mb-4"><img src="/img/logo-davinci.png" class="" alt="logo Escuela Da Vinci" /></div>
       </div>
 
-      <div id="container-team" class="flex-1">
+      <div id="container-team" class="flex justify-center lg:flex-1">
 
         <h3 class="block text-xl font-bold ">Alumnos:</h3>
 
