@@ -95,8 +95,8 @@ export default{
               <img src="../../public/img/avatar.jpeg" class="w-24 h-24 rounded-full mx-auto shadow-xl" alt="imagen de usuario">
             </div>
             <div class="mt-6  mb-4 px-6 mx-auto ">
-              <p class="text-2xl font-black capitalize">
-                Chatea con un Admin
+              <p class="text-2xl text-center font-black">
+                Chateá con nosotros
               </p>
             </div>
             <div class="mt-4 mb-10 px-6 mx-auto">
