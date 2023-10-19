@@ -14,6 +14,11 @@ import {
 
 const refPrudctos = collection(db, 'productos')
 
+/**
+ * Obtiene todos los productos de la base de datos
+ * @param {*} callback
+ * @returns
+ */
 export  function cargarProductos (callback){
 
   return onSnapshot(refPrudctos, snapshot => {
@@ -31,6 +36,11 @@ export  function cargarProductos (callback){
   })
 }
 
+/**
+ * Obtiene un producto por su id
+ * @param {*} id
+ * @returns
+ */
 export async function obtenerProductoPorId(id) {
   console.log(`productos/${id}`)
   const refPrudcto = doc(db, `productos/${id}`);
@@ -45,10 +55,19 @@ export async function obtenerProductoPorId(id) {
   }
 }
 
+/**
+ * Elimina un producto de la base de datos
+ * @param {*} id
+ */
 export async function deleteProducto(id){
   await deleteDoc(doc(db, 'productos' , id))
 }
 
+
+/**
+ * Edita un producto de la base de datos
+ * @param {*} producto
+ */
 export function editarProducto(producto) {
   updateDoc(doc(db, 'productos' , producto.id),{
     cupo: producto.cupo,
@@ -58,6 +77,12 @@ export function editarProducto(producto) {
   })
 }
 
+
+/**
+ * Agrega un producto a la base de datos
+ * @param {} producto
+ * @returns
+ */
 export function agregarProducto(producto){
   return addDoc(refPrudctos, {
     ...producto,
