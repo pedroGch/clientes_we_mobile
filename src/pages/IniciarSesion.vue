@@ -73,8 +73,8 @@ export default {
             <form action="" method="POST" @submit.prevent="submitForm"
                 class="block border rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                 <div class="relative mb-12" data-te-input-wrapper-init>
-                    <BaseInput type="email" name="email" id="email" autocomplete="off" v-model="formulario.email"/>
                     <BaseLabel for="email">Email</BaseLabel>
+                    <BaseInput type="email" name="email" id="email" autocomplete="off" v-model="formulario.email"/>
                     <div class="mt-1 flex">
                       <svg v-if="errors.email" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#b0233a" class="h-5 w-5">
                       <path fill-rule="evenodd"
@@ -86,8 +86,8 @@ export default {
                 </div>
 
                 <div class="relative mb-6" data-te-input-wrapper-init>
-                    <BaseInput type="password" autocomplete="off" name="password" id="password" v-model="formulario.password"/>
                     <BaseLabel for="password">Contraseña</BaseLabel>
+                    <BaseInput type="password" autocomplete="off" name="password" id="password" v-model="formulario.password"/>
                     <div class="mt-1 flex">
                       <svg v-if="errors.password" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#b0233a" class="h-5 w-5">
                       <path fill-rule="evenodd"

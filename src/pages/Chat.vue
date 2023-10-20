@@ -142,7 +142,7 @@ export default{
             <!-- Contenido del modal -->
             <div class="modal-content py-4 text-left px-6">
                 <div class="flex justify-between items-center pb-3">
-                    <p class="text-2xl font-bold">Chatea con {{chatPersonal.usuario}}.</p>
+                    <BaseH2 class="text-2xl font-bold">Chateá con {{chatPersonal.usuario}}.</BaseH2>
                     <button class="modal-close cursor-pointer z-50" @click="cerrarChat()">
                         <svg class="fill-current text-principal" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
                             <path
