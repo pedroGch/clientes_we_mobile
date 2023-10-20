@@ -85,22 +85,50 @@ export default {
           <div class="relative mb-6">
             <label for="nombre">Título</label>
             <BaseInput type="text" name="nombre" id="nombre" v-model="curso.nombre" />
-            <p v-if="errors.nombre" class="error-message">{{ errors.nombre }}</p>
+            <div class="mt-1 flex">
+                      <svg v-if="errors.nombre" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#b0233a" class="h-5 w-5">
+                      <path fill-rule="evenodd"
+                          d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    <p v-if="errors.nombre" class="error-message text-red-700">{{ errors.nombre }}</p>
+                    </div>
           </div>
           <div class="relative mb-6">
             <label for="descripcion">Descripción</label>
             <BaseInput type="text" name="descripcion" id="descripcion" v-model="curso.descripcion" />
-            <p v-if="errors.descripcion" class="error-message">{{ errors.descripcion }}</p>
+            <div class="mt-1 flex">
+                      <svg v-if="errors.descripcion" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#b0233a" class="h-5 w-5">
+                      <path fill-rule="evenodd"
+                          d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    <p v-if="errors.descripcion" class="error-message text-red-700">{{ errors.descripcion }}</p>
+                    </div>
           </div>
           <div class="relative mb-6">
             <label for="precio">Precio</label>
             <BaseInput type="number" name="precio" id="precio" v-model="curso.precio" />
-            <p v-if="errors.precio" class="error-message">{{ errors.precio }}</p>
+            <div class="mt-1 flex">
+                      <svg v-if="errors.precio" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#b0233a" class="h-5 w-5">
+                      <path fill-rule="evenodd"
+                          d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    <p v-if="errors.precio" class="error-message text-red-700">{{ errors.precio }}</p>
+                    </div>
           </div>
           <div class="relative mb-6">
             <label for="cupo">Cupo</label>
             <BaseInput type="number" name="cupo" id="cupo" v-model="curso.cupo" />
-            <p v-if="errors.cupo" class="error-message">{{ errors.cupo }}</p>
+            <div class="mt-1 flex">
+                      <svg v-if="errors.cupo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#b0233a" class="h-5 w-5">
+                      <path fill-rule="evenodd"
+                          d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    <p v-if="errors.cupo" class="error-message text-red-700">{{ errors.cupo }}</p>
+                    </div>
           </div>
           <BaseButton type="submit">Editar</BaseButton>
         </form>
