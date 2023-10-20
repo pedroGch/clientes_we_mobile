@@ -30,7 +30,7 @@ export default {
 <template>
   <div>
     <NavBar></NavBar>
-    <main class="container h-full m-auto p-4">
+    <main class="container h-auto m-auto p-4 pt-10 pb-20">
       <router-view
         :usuario="usuario"
         @login="manejarLogin"></router-view>

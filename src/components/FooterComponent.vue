@@ -26,9 +26,9 @@ export default {
         <div class="mb-4"><img src="/img/logo-davinci.png" class="" alt="logo Escuela Da Vinci" /></div>
       </div>
 
-      <div id="container-team" class="flex justify-center lg:flex-1">
+      <div id="container-team" class=" lg:flex justify-center lg:flex-1">
 
-        <h3 class="block text-xl font-bold ">Alumnos:</h3>
+        <h3 class="ms-20 block text-xl font-bold ">Alumnos:</h3>
 
         <div class="flex">
 
