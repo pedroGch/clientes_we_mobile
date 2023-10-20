@@ -4,7 +4,7 @@ import { db } from "./firebase";
 const privateChatRefCache = {};
 
 /**
- *
+ * Envia un mensaje privado.
  * @param {{senderId: string, receiverId: string, message: string}} data
  * @returns {Promise}
  */
@@ -22,7 +22,7 @@ export async function enviarMensajePrivado({senderId, receiverId, message}) {
 }
 
 /**
- *
+ * Obtiene los mensajes de un chat privado.
  * @param {{senderId: string, receiverId: string}} users
  * @param {({}[]}) => void} callback
  * @returns {Promise<import("firebase/auth").Unsubscribe>}
@@ -52,7 +52,7 @@ export async function suscribirAChatPrivado({senderId, receiverId}, callback) {
 }
 
 /**
- *
+ * Obtiene el documento del chat privado entre dos usuarios.
  * @param {{senderId: string, receiverId: string}} users
  * @returns {Promise<DocumentReference>}
  */
@@ -90,14 +90,31 @@ async function getPrivateChatDoc(senderId, receiverId) {
     return privateChatDoc;
 }
 
+/**
+ * Agrega un documento al cache.
+ * @param {*} param0
+ * @param {*} value
+ */
 function addToCache({senderId, receiverId}, value) {
     privateChatRefCache[getKeyForCache()] = value;
 }
 
+/**
+ * Obtiene un documento del cache.
+ * @param {*} senderId
+ * @param {*} receiverId
+ * @returns
+ */
 function getFromCache(senderId, receiverId) {
     return privateChatRefCache[getKeyForCache()] || null;
 }
 
+/**
+ * Genera una clave para el cache.
+ * @param {*} senderId
+ * @param {*} receiverId
+ * @returns
+ */
 function getKeyForCache(senderId, receiverId) {
     return senderId + receiverId;
 }

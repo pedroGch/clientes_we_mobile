@@ -38,6 +38,12 @@ export async function register({email, password, rol}) {
 
 }
 
+/**
+ * Función que se ejecuta cuando el estado de autenticación cambia.
+ * Recibe como argumento una función que recibe como argumento un objeto con los datos del usuario. Si no hay usuario, el objeto es null.
+ * @param {(user: {id: null|string, email: null|string}) => void} callback
+ * @return {() => void}
+ */
 onAuthStateChanged(auth, user => {
   if (user){
     setUserData({
@@ -72,7 +78,7 @@ export async function login({email, password}) {
 }
 
 /**
- *
+ * Cierra sesión.
  * @returns {Promise}
  */
 export function logout() {
@@ -107,7 +113,6 @@ function notifyAll() {
 
 /**
  * Notifica a un observador de los datos.
- *
  * @param {({id: null|string, email: null|string}) => void} observer
  */
 function notify(observer) {
@@ -115,7 +120,7 @@ function notify(observer) {
 }
 
 /**
- *
+ * Actualiza los datos del usuario.
  * @param {{id: null|string, email: null|string}} newData
  */
 function setUserData(newData) {
@@ -126,6 +131,9 @@ function setUserData(newData) {
     notifyAll();
 }
 
+/**
+ * Elimina los datos del usuario.
+ */
 function clearUserData() {
     setUserData({
         id: null,
@@ -134,6 +142,10 @@ function clearUserData() {
     });
 }
 
+/**
+ * Obtiene los datos del usuario.
+ * @returns {{id: null|string, email: null|string}}
+ */
 export function getUserData() {
     return {...userData};
 }
