@@ -22,7 +22,7 @@ export default {
 </script>
 
 <template>
-<div class="">
+<div>
 
   <div>
     <div class="text-center mt-16 mb-16">
@@ -32,10 +32,10 @@ export default {
 
         <div class="max-w-7xl mx-auto bg-white rounded-lg shadow-lg flex flex-col lg:flex-row">
           <!-- Imagen -->
-          <img src="../../public/img/curso1.jpg" alt="Imagen" class="lg:w-1/2">
+          <img src="../../public/img/curso1.jpg" alt="Imagen genérica de persona pintando mandalas" class="lg:w-1/2">
 
           <!-- Texto al lado de la imagen -->
-          <div class="lg:w-1/2 p-4 ">
+          <div class="lg:w-1/2 p-4">
             <h3><BaseH2>{{producto.nombre}}</BaseH2></h3>
             <p class="text-lg text-gray-700">Descripción: {{producto.descripcion}}</p>
             <hr class="m-2">
@@ -44,8 +44,8 @@ export default {
             <p class="text-lg text-gray-700"><strong>Precio:</strong> ${{producto.precio}}</p>
             <hr class="m-2">
 
-            <BaseButton>
-              <router-link to="/">Comprar</router-link>
+            <BaseButton class="bg-slate-400">
+              <router-link to="#">Comprar</router-link>
             </BaseButton>
             <BaseButton>
               <router-link to="/cursos">Volver a tienda</router-link>
