@@ -73,13 +73,27 @@ export default {
                 <div class="relative mb-6" data-te-input-wrapper-init>
                     <BaseInput type="email" :disabled="loadingRegistro" name="user_email" v-model="nuevoUsuario.email"/>
                     <BaseLabel for="user_email">Email</BaseLabel>
-                    <p v-if="errors.email" class="error-message">{{ errors.email }}</p>
+                    <div class="mt-1 flex">
+                      <svg v-if="errors.email" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#b0233a" class="h-5 w-5">
+                      <path fill-rule="evenodd"
+                          d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    <p v-if="errors.email" class="error-message text-red-700">{{ errors.email }}</p>
+                    </div>
                 </div>
 
                <div class="relative mb-6" data-te-input-wrapper-init>
                     <BaseInput type="password" :disabled="loadingRegistro" name="password" v-model="nuevoUsuario.password"/>
                     <BaseLabel for="password">Contraseña</BaseLabel>
-                    <p v-if="errors.password" class="error-message">{{ errors.password }}</p>
+                    <div class="mt-1 flex">
+                      <svg v-if="errors.password" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#b0233a" class="h-5 w-5">
+                      <path fill-rule="evenodd"
+                          d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    <p v-if="errors.password" class="error-message text-red-700">{{ errors.password }}</p>
+                    </div>
                 </div>
 
                 <BaseButton :loading="loadingRegistro">Ingresar</BaseButton>
