@@ -9,7 +9,6 @@ export default {
       usuario: {
         id:'',
         email: '',
-        rol: ''
       },
       usuarioLog: {}
     }
@@ -22,10 +21,11 @@ export default {
     }
   },
   async mounted() {
-    subscribeToAuth(usuario => {
+    subscribeToAuth(async usuario => {
       this.usuario = {...usuario};
+      this.usuarioLog = await obtenerUsuarioPorId(this.usuario.id);
     })
-    this.usuarioLog = await obtenerUsuarioPorId(this.usuario.id)
+
   },
 }
 
