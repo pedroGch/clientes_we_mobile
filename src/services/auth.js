@@ -43,9 +43,9 @@ onAuthStateChanged(auth, user => {
     setUserData({
       id: user.uid,
       email: user.email,
-      rol: user.rol
+      // rol: user.rol
     })
-    localStorage.setItem('user', JSON.stringify('user'))
+    localStorage.setItem('user', JSON.stringify(userData))
   }else{
     clearUserData()
     localStorage.removeItem('user')
