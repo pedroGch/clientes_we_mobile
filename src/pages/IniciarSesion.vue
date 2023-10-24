@@ -24,7 +24,8 @@ export default {
       errors: {
         email: '',
         password: '',
-      }
+      },
+      errorMessage: ''
     }
   },
   methods:{
@@ -39,6 +40,7 @@ export default {
         .catch((err) => { alert('UPS algo no va bien')})
         .finally(()=>{
           console.log('acá detenemos la animacion del loading...')
+          this.errorMessage = 'Usuario y/o contraseña incorrecta'; // Establece el mensaje de error
         })
     },
     validateForm() {
@@ -72,6 +74,8 @@ export default {
   <section class="mb-10 lg:mx-6 flex justify-center p-4 ">
             <form action="" method="POST" @submit.prevent="submitForm"
                 class="block border rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                <p v-if="errorMessage" class="error-message text-red-700 my-6">{{ errorMessage }}</p>
+
                 <div class="relative mb-12" data-te-input-wrapper-init>
                     <BaseLabel for="email">Email</BaseLabel>
                     <BaseInput type="email" name="email" id="email" autocomplete="off" v-model="formulario.email"/>
