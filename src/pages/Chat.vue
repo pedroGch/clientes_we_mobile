@@ -122,7 +122,7 @@ export default{
             <div class="mt-4 mb-10 px-6 mx-auto">
               <!-- <BaseButton @click="abrirChat(c)">Ingresar al chat
               </BaseButton> -->
-              <router-link :to="`/usuario/${c.userId}/chat`">
+              <router-link :to="`/usuario/${c.id}/chat`">
                 <BaseButton>Ingresar al chat
                 </BaseButton>
               </router-link>

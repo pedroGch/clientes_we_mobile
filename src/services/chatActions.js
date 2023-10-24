@@ -13,7 +13,7 @@ import {
   orderBy,
 } from "firebase/firestore"
 
-const refChat = collection(db, BDNAME)
+const refChat = collection(db, 'usuarios')
 
 
 /**
@@ -35,16 +35,13 @@ export function saveMessage(data){
  */
 
 export  function loadSnapshot (callback){
-  const qry = query(refChat, orderBy('created_at'))
-  return onSnapshot(qry,refChat, snapshot => {
+
+  return onSnapshot(refChat, snapshot => {
     const data = snapshot.docs.map(doc => {
       return {
         id: doc.id,
-        userId: doc.data().userId,
-        mensaje: doc.data().mensaje,
-        usuario: doc.data().usuario,
-        fecha_mensaje: doc.data().created_at
-
+        userId: doc.id,
+        usuario: doc.data().email,
       }
     })
     callback(data);
@@ -52,14 +49,3 @@ export  function loadSnapshot (callback){
 
 }
 
-
-// export function taskCompleted(task) {
-//   console.log(task)
-//   updateDoc(doc(db, BDNAME , task.id),{
-//     completed: !task.completed,
-//   })
-// }
-
-// export async function deleteTask(task){
-//   await deleteDoc(doc(db, BDNAME , task.id))
-// }
