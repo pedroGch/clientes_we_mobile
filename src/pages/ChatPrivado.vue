@@ -33,6 +33,7 @@ export default{
   },
   methods:{
     manejadorEnvioMensaje(){
+
       enviarMensajePrivado({
         senderId:this.authUsuario.id,
         receiverId:this.usuario.id,

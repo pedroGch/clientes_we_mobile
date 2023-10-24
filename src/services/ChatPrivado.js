@@ -9,9 +9,20 @@ const privateChatRefCache = {};
  * @returns {Promise}
  */
 export async function enviarMensajePrivado({senderId, receiverId, message}) {
-    const privateChatDoc = await getPrivateChatDoc(senderId, receiverId);
+  console.log(`
+  senderId= ${senderId}
+  receiverId = ${receiverId}
+  message = ${message}
+  `)
+    const privateChatDoc = await getPrivateChatDoc({senderId, receiverId});
 
     const messagesRef = collection(db, `chat-privado/${privateChatDoc.id}/mensajes`);
+
+console.log(`
+privateChatDoc : ${privateChatDoc}
+messagesRef: ${messagesRef}
+
+`)
 
     await addDoc(messagesRef, {
         senderId,
@@ -56,8 +67,11 @@ export async function suscribirAChatPrivado({senderId, receiverId}, callback) {
  * @param {{senderId: string, receiverId: string}} users
  * @returns {Promise<DocumentReference>}
  */
-async function getPrivateChatDoc(senderId, receiverId) {
-    const cachedRef = getFromCache(senderId, receiverId);
+async function getPrivateChatDoc({senderId, receiverId}) {
+    const cachedRef = getFromCache({senderId, receiverId});
+
+    console.log(`cachedRef: ${cachedRef}`)
+
     if(cachedRef) {
       return cachedRef;
     }
@@ -96,7 +110,7 @@ async function getPrivateChatDoc(senderId, receiverId) {
  * @param {*} value
  */
 function addToCache({senderId, receiverId}, value) {
-    privateChatRefCache[getKeyForCache()] = value;
+  privateChatRefCache[getKeyForCache({senderId, receiverId})] = value;
 }
 
 /**
@@ -105,8 +119,8 @@ function addToCache({senderId, receiverId}, value) {
  * @param {*} receiverId
  * @returns
  */
-function getFromCache(senderId, receiverId) {
-    return privateChatRefCache[getKeyForCache()] || null;
+function getFromCache({senderId, receiverId}) {
+  return privateChatRefCache[getKeyForCache({senderId, receiverId})] || null;
 }
 
 /**
@@ -115,6 +129,6 @@ function getFromCache(senderId, receiverId) {
  * @param {*} receiverId
  * @returns
  */
-function getKeyForCache(senderId, receiverId) {
-    return senderId + receiverId;
+function getKeyForCache({senderId, receiverId}) {
+  return senderId + receiverId;
 }
