@@ -108,25 +108,29 @@ export default{
           </div>
         </template>
         <template v-else >
-          <div v-for="(c,i) in chats" :key="i" class="flex flex-col bg-slate-200 p-4 my-2 w-[300px] h-[305px]">
-            <div class="">
-              <img src="../../public/img/avatar.jpeg" class="w-24 h-24 rounded-full mx-auto shadow-xl" alt="imagen de usuario">
-            </div>
-            <div class="mt-6  mb-4 px-6 mx-auto ">
-              <p class="text-2xl font-black capitalize">
-                <router-link :to="`/perfil-usuario/${c.userId}`">
-                  {{ c.usuario }}
-                </router-link>
-              </p>
-            </div>
-            <div class="mt-4 mb-10 px-6 mx-auto">
-              <!-- <BaseButton @click="abrirChat(c)">Ingresar al chat
-              </BaseButton> -->
-              <router-link :to="`/usuario/${c.id}/chat`">
-                <BaseButton>Ingresar al chat
-                </BaseButton>
-              </router-link>
-            </div>
+          <div v-for="(c,i) in chats" :key="i" >
+            <template v-if="c.usuario != 'admin@admin.com' ">
+              <div class="flex flex-col bg-slate-200 p-4 my-2 w-[300px] h-[305px]">
+                <div class="">
+                  <img src="../../public/img/avatar.jpeg" class="w-24 h-24 rounded-full mx-auto shadow-xl" alt="imagen de usuario">
+                </div>
+                <div class="mt-6  mb-4 px-6 mx-auto ">
+                  <p class="text-2xl font-black capitalize">
+                    <router-link :to="`/perfil-usuario/${c.userId}`">
+                      {{ c.usuario }}
+                    </router-link>
+                  </p>
+                </div>
+                <div class="mt-4 mb-10 px-6 mx-auto">
+                  <!-- <BaseButton @click="abrirChat(c)">Ingresar al chat
+                  </BaseButton> -->
+                  <router-link :to="`/usuario/${c.id}/chat`">
+                    <BaseButton>Ingresar al chat
+                    </BaseButton>
+                  </router-link>
+                </div>
+              </div>
+            </template>
           </div>
         </template>
 
