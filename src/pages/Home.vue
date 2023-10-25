@@ -17,7 +17,7 @@ export default {
   <div>
 
     <BaseH2 class="text-center mb-10 mt-10">Bienvenido a Dhara</BaseH2>
-    <img src="./../../public/img/slider_1.jpg" class="m-auto" alt="">
+    <img src="./../../public/img/slider_1.jpg" class="m-auto" alt="foto de buda">
 
     <div>
       <BaseH2 class="text-center m-16">Nosotros</BaseH2>
@@ -25,7 +25,7 @@ export default {
 
         <div class="max-w-7xl mx-auto bg-white rounded-lg shadow-lg flex flex-col lg:flex-row">
           <!-- Imagen -->
-          <img src="../../public/img/curso3.jpg" alt="Imagen" class="lg:w-1/2">
+          <img src="../../public/img/curso3.jpg" alt="mujer sentada meditando sobre una colchoneta" class="lg:w-1/2">
 
           <!-- Texto al lado de la imagen -->
           <div class="p-6 lg:w-1/2 bg-principal p-16">
@@ -65,7 +65,7 @@ export default {
           </div>
 
           <!-- Imagen -->
-          <img src="../../public/img/curso1.jpg" alt="Imagen" class="lg:w-1/2">
+          <img src="../../public/img/curso1.jpg" alt="imagen de persona pintando mandalas" class="lg:w-1/2">
 
         </div>
       </div>

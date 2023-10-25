@@ -12,3 +12,12 @@ Equipo:
 
 Docente: Gallino Santiago 
 Carácter de entrega: Primer Parcial.
+
+
+
+Aclaración:
+
+Para poder acceder como usuario administrador, se deberán utilizar las siguientes credenciales.
+
+usuario: admin@admin.com
+password: 123456
