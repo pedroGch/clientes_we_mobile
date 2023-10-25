@@ -91,7 +91,7 @@ export default{
                         :class="
                           {
                             'bg-gray-100 w-6/12 rounded-lg': mensaje.senderId !== authUsuario.id,
-                            'bg-purple-200 text-right w-6/12 ml-[50%] rounded-lg': mensaje.senderId === authUsuario.id,
+                            'bg-purple-200 text-right lg:w-6/12 lg:ml-[50%] rounded-lg': mensaje.senderId === authUsuario.id,
                           }"
                       >
                         <div class="p-2 my-3 m-5">
