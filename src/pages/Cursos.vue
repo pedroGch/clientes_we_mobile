@@ -48,7 +48,7 @@ export default {
             <div class="py-4 max-w-sm rounded overflow-hidden shadow-lg" v-for="producto in productos" :key="producto.id">
               <img class="" src="../../public/img/curso1.jpg" alt="imagen de persona pintando mandalas">
               <div class="px-6 py-4">
-                <div class="font-bold text-xl mb-2">Curso: "{{ producto.nombre }}"</div>
+                <h3 class="font-bold text-xl mb-2">Curso: "{{ producto.nombre }}"</h3>
                 <p class="text-gray-700 text-base">
                   Precio: ${{ producto.precio }}
                 </p>

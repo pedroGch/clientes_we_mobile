@@ -2,6 +2,7 @@
 import { obtenerUsuarioPorId } from '../services/usuarios';
 import BaseH2 from "../components/BaseH2.vue";
 import BaseButton from "../components/BaseButton.vue";
+import Loader from "../components/Loader.vue";
 import { subscribeToAuth } from '../services/auth';
 import { cargarProductos, deleteProducto } from '../services/productos';
 
@@ -10,6 +11,7 @@ export default {
   components: {
     BaseButton,
     BaseH2,
+    Loader
   },
   props:{
     id: String
