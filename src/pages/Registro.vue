@@ -72,7 +72,7 @@ export default {
 
                 <div class="relative mb-6" data-te-input-wrapper-init>
                     <BaseLabel for="user_email">Email</BaseLabel>
-                    <BaseInput type="email" :disabled="loadingRegistro" name="user_email" v-model="nuevoUsuario.email"/>
+                    <BaseInput type="email" :disabled="loadingRegistro" name="user_email" id="user_email" v-model="nuevoUsuario.email"/>
                     <div class="mt-1 flex">
                       <svg v-if="errors.email" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#b0233a" class="h-5 w-5">
                       <path fill-rule="evenodd"
@@ -85,7 +85,7 @@ export default {
 
                <div class="relative mb-6" data-te-input-wrapper-init>
                     <BaseLabel for="password">Contraseña</BaseLabel>
-                    <BaseInput type="password" :disabled="loadingRegistro" name="password" v-model="nuevoUsuario.password"/>
+                    <BaseInput type="password" :disabled="loadingRegistro" name="password" id="password" v-model="nuevoUsuario.password"/>
                     <div class="mt-1 flex">
                       <svg v-if="errors.password" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#b0233a" class="h-5 w-5">
                       <path fill-rule="evenodd"

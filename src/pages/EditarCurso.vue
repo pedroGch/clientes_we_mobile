@@ -108,7 +108,7 @@ export default {
           </div>
           <div class="relative mb-6">
             <label for="precio">Precio</label>
-            <BaseInput type="number" name="precio" id="precio" v-model="curso.precio" />
+            <BaseInput type="text" name="precio" id="precio" v-model="curso.precio" />
             <div class="mt-1 flex">
                       <svg v-if="errors.precio" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#b0233a" class="h-5 w-5">
                       <path fill-rule="evenodd"

@@ -107,6 +107,7 @@ export default{
             </div>
           </div>
         </template>
+
         <template v-else >
           <div v-for="(c,i) in chats" :key="i" >
             <template v-if="c.usuario != 'admin@admin.com' ">
@@ -141,9 +142,9 @@ export default{
       <Loader class="flex" />
     </template>
 
-    <div id="modal" class="fixed inset-0  flex items-center justify-center z-50 hidden ">
+    <!-- <div id="modal" class="fixed inset-0  flex items-center justify-center z-50 hidden ">
         <div class="modal-container bg-white w-[45%] h-[600px] md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
-            <!-- Contenido del modal -->
+            /* Contenido del modal */
             <div class="modal-content py-4 text-left px-6">
                 <div class="flex justify-between items-center pb-3">
                     <BaseH2 class="text-2xl font-bold">Chateá con {{chatPersonal.usuario}}.</BaseH2>
@@ -170,7 +171,7 @@ export default{
                   </form>
             </div>
         </div>
-    </div>
+    </div> -->
   </div>
 
 </template>

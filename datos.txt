@@ -6,12 +6,10 @@ Turno: noche (virtual),
 Comisión: DWN4BV,
 
 Equipo:
-* Gonzalez Chavez, Pedro
-* Scotto Rocío Belén
 * Valdiviezo, Ezequiel Francisco
 
-Docente: Gallino Santiago 
-Carácter de entrega: Primer Parcial.
+Docente: Gallino Santiago
+Carácter de entrega: Segundo Parcial.
 
 
 
