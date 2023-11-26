@@ -29,6 +29,8 @@ export default {
       },
       productos: [],
       unsuscribeProductos: () => {},
+      showConfirmationModal: false,
+      productoAEliminar: null,
     }
   },
   async mounted() {
@@ -44,6 +46,24 @@ export default {
   methods:{
     eliminarProducto(id){
       deleteProducto(id)
+    },
+
+    mostrarModalConfirmacion(producto) {
+      this.productoAEliminar = producto;
+      this.showConfirmationModal = true;
+    },
+
+    cancelarEliminacion() {
+      this.showConfirmationModal = false;
+      this.productoAEliminar = null;
+    },
+
+    confirmarEliminacion() {
+      if(this.productoAEliminar){
+        deleteProducto(this.productoAEliminar.id);
+      }
+      this.showConfirmationModal = false;
+      this.productoAEliminar = null;
     }
   }
 }
@@ -75,7 +95,9 @@ export default {
                 <router-link :to="`/editar-curso/${p.id}`">
                   <BaseButton type="submit">Editar</BaseButton>
                 </router-link>
-                <BaseButton type="button" @click="eliminarProducto(p.id)">Eliminar</BaseButton>
+                <BaseButton type="button"
+                @click="mostrarModalConfirmacion(p)"
+                >Eliminar</BaseButton>
                 <router-link :to="`/detalles-curso/${p.id}`">
                   <BaseButton type="submit">Ver
                     más</BaseButton>
@@ -86,5 +108,16 @@ export default {
         </table>
       </div>
     </template>
+
+    <div v-if="showConfirmationModal" class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+      <div class="modal-container bg-white w-[400px] mx-auto rounded shadow-lg p-6">
+        <h2 class="text-2xl font-bold mb-4">Confirmar Eliminación</h2>
+        <p class="mb-4">¿Estás seguro de que deseas eliminar este producto?</p>
+        <div class="flex justify-end">
+          <BaseButton @click="cancelarEliminacion">Cancelar</BaseButton>
+          <BaseButton @click="confirmarEliminacion" class="ml-2">Confirmar</BaseButton>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
