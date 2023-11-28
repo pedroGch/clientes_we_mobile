@@ -47,11 +47,20 @@ export default {
         this.errors.descripcion = 'La descripción es requerida.';
       }
 
-      if (!this.curso.precio) {
-        this.errors.precio = 'El precio es requerido.';
-      } else if (isNaN(this.curso.precio) || this.curso.precio <= 0) {
-        this.errors.precio = 'Ingrese un precio válido.';
-      }
+      // if (!this.curso.precio) {
+      //   this.errors.precio = 'El precio es requerido.';
+      // } else if (isNaN(this.curso.precio) || this.curso.precio <= 0 || this.curso.precio.toString().includes('.')) {
+      //   this.errors.precio = 'Ingrese un precio válido. Ingrese un precio válido con comas en lugar de puntos.';
+      // }
+
+    if (!this.curso.precio) {
+      this.errors.precio = 'El precio es requerido.';
+    } else if (isNaN(this.curso.precio) || this.curso.precio <= 0) {
+      this.errors.precio = 'Ingrese un precio válido, y con puntos si posee.';
+    } else if (this.curso.precio.toString().includes(',')) {
+      // Permitir solo comas y no mostrar ningún error si se encuentra una coma.
+      this.errors.precio = null;
+    }
 
       if (!this.curso.cupo) {
         this.errors.cupo = 'El cupo es requerido.';
