@@ -32,7 +32,7 @@ export default {
 
         <div class="max-w-7xl mx-auto bg-white rounded-lg shadow-lg flex flex-col lg:flex-row">
           <!-- Imagen -->
-          <img src="../../public/img/curso1.jpg" alt="Imagen genérica de persona pintando mandalas" class="lg:w-1/2">
+          <img src="../../public/img/curso1.jpg" alt="Persona pintando mandalas" class="lg:w-1/2">
 
           <!-- Texto al lado de la imagen -->
           <div class="lg:w-1/2 p-4">

@@ -60,7 +60,7 @@ export default {
 
         <template v-if="!editarPefilSeccion">
           <div class="lg:flex-2">
-            <img src="../../public/img/curso2.jpg" alt="Imagen" class="lg:w-2/3 mx-auto mt-6">
+            <img src="../../public/img/curso2.jpg" alt="Mandala pintada con marcadores" class="lg:w-2/3 mx-auto mt-6">
           </div>
         </template>
 
