@@ -16,6 +16,7 @@ export default {
   data() {
     return {
       cargando: true,
+      editarPefilSeccion: false,
       usuario: {
         id: '',
         email: '',
@@ -28,7 +29,13 @@ export default {
     submitForm() {
         editarUsuario(this.usuario)
         this.$router.push('/perfil-usuario/:id')
-    }
+    },
+    editarPefilMostrar() {
+      this.editarPefilSeccion = true;
+    },
+    editarPefilOcultar() {
+      this.editarPefilSeccion = false;
+    },
   },
   async mounted() {
     this.cargando = true
@@ -51,9 +58,29 @@ export default {
 
       <div class="lg:flex">
 
-        <div class="lg:flex-2">
-          <!-- <img src="../../public/img/curso2.jpg" alt="Imagen" class="lg:w-2/3 mx-auto mt-6"> -->
-          <form action="#" method="POST" id="form-edit" @submit.prevent="submitForm">
+        <template v-if="!editarPefilSeccion">
+          <div class="lg:flex-2">
+            <img src="../../public/img/curso2.jpg" alt="Imagen" class="lg:w-2/3 mx-auto mt-6">
+          </div>
+        </template>
+
+        <div class="lg:flex-1 px-6">
+          <p class="my-3 mt-6 text-xl">¡Bienvenido <b>{{ usuario.email }}</b>!</p>
+
+          <p class="my-3 text-xl">Acordate que tenés a tu disposición el chat para consultarnos todas tus dudas.</p>
+
+          <p class="my-3 text-xl">En el siguiente link te invitamos a conocer todos los cursos que tenemos disponibles
+            para vos. En caso que desees cambiar tu nombre de usuario y genero, también podras.</p>
+
+          <BaseButton @click="editarPefilMostrar">Editar Perfil</BaseButton>
+          <BaseButton>
+            <router-link to="/cursos">ver cursos</router-link>
+          </BaseButton>
+        </div>
+
+        <template v-if="editarPefilSeccion">
+          <div class="lg:flex-1 px-6">
+            <form action="#" class="max-w-md m-auto" method="POST" id="form-edit" @submit.prevent="submitForm">
           <div class="relative mb-6">
             <label for="nombreUsuario">Nombre de usuario</label>
             <input
@@ -73,22 +100,10 @@ export default {
               v-model="usuario.genero" />
           </div>
           <BaseButton type="submit">Editar</BaseButton>
+          <BaseButton @click="editarPefilOcultar">Cancelar</BaseButton>
         </form>
         </div>
-
-        <div class="lg:flex-1 px-6">
-          <p class="my-3 mt-6 text-xl">¡Bienvenido <b>{{ usuario.email }}</b>!</p>
-
-          <p class="my-3 text-xl">Acordate que tenés a tu disposición el chat para consultarnos todas tus dudas.</p>
-
-          <p class="my-3 text-xl">En el siguiente link te invitamos a conocer todos los cursos que tenemos disponibles
-            para vos.</p>
-
-          <BaseButton>
-            <router-link to="/cursos">ver cursos</router-link>
-          </BaseButton>
-        </div>
-
+        </template>
       </div>
 
     </template>
