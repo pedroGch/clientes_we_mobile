@@ -22,6 +22,7 @@ export default{
   data(){
     return{
       isLoading: true,
+      isLoading2: true,
       chats:[],
       chatPersonal:{},
       admin: {},
@@ -46,8 +47,10 @@ export default{
     })
     this.unsuscribeAuth = subscribeToAuth(nuevoUsuario => this.usuario = {...nuevoUsuario})
 
+    this.isLoading2 = true
     await obtenerAdmin().then(id => this.admin = id[0].id)
     this.usuarioLog = await obtenerUsuarioPorId(this.usuario.id)
+    this.isLoading2 = false
   },
   unmounted(){
     this.unsuscribeAuth()
@@ -108,7 +111,7 @@ export default{
           </div>
         </template>
 
-        <template v-else >
+        <template v-else-if="usuarioLog.rol === 'admin'" >
           <div v-for="(c,i) in chats" :key="i" >
             <template v-if="c.usuario != 'admin@admin.com' ">
               <div class="flex flex-col bg-slate-200 p-4 my-2 w-[300px] h-[305px]">
@@ -134,7 +137,9 @@ export default{
             </template>
           </div>
         </template>
-
+        <template v-else>
+          <Loader class="flex" />
+        </template>
 
       </div>
     </template>
