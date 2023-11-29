@@ -2,6 +2,8 @@
 import BaseH2 from '../components/BaseH2.vue';
 import BaseButton from '../components/BaseButton.vue';
 import { obtenerProductoPorId } from '../services/productos';
+import { compraUsuario, obtenerUsuarioPorId } from '../services/usuarios';
+import { getUserId } from '../services/auth';
 
 export default {
   name:"DetalleCurso",
@@ -11,11 +13,21 @@ export default {
   },
   data(){
     return{
-      producto: []
+      producto: [],
+      usuario: '',
     }
   },
+  methods: {
+    CompraProducto(){
+      // compraUsuario({...this.producto}, this.$route.params.id)
+      // Obtiene el ID del usuario en sesión
+      const userId = getUserId();
+      compraUsuario({...this.producto}, userId)
+    },
+  },
   async mounted(){
-    this.producto = await obtenerProductoPorId(this.$route.params.id)
+    this.producto = await obtenerProductoPorId(this.$route.params.id);
+    this.usuario = await obtenerUsuarioPorId(this.$route.params.id);
   }
 
 }
@@ -44,9 +56,8 @@ export default {
             <p class="text-lg text-gray-700"><strong>Precio:</strong> ${{producto.precio}}</p>
             <hr class="m-2">
 
-            <BaseButton class="bg-slate-400">
-              <router-link to="#">Comprar</router-link>
-            </BaseButton>
+            <BaseButton @click="CompraProducto">Comprar</BaseButton>
+
             <BaseButton>
               <router-link to="/cursos">Volver a tienda</router-link>
             </BaseButton>

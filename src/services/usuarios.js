@@ -1,5 +1,5 @@
 import { db } from "./firebase";
-import { doc, getDoc, getDocs, setDoc, serverTimestamp, collection, limit, where, query, updateDoc } from "firebase/firestore";
+import { doc, getDoc, getDocs, setDoc, serverTimestamp, collection, limit, where, query, updateDoc, arrayUnion } from "firebase/firestore";
 
 /**
  * Obtiene un usuario por su id.
@@ -65,5 +65,18 @@ export function editarUsuario(usuario) {
   updateDoc(doc(db, 'usuarios' , usuario.id),{
     nombreUsuario: usuario.nombreUsuario,
     genero: usuario.genero,
+  })
+}
+
+
+/**
+ * Agrega un producto al arrays de compras
+ * @param {*} usuario
+ */
+export function compraUsuario(producto, id) {
+  console.log(producto)
+  console.log(id)
+  updateDoc(doc(db, 'usuarios' , id),{
+    compras: arrayUnion(producto.nombre),
   })
 }

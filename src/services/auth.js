@@ -156,3 +156,22 @@ function clearUserData() {
 export function getUserData() {
     return {...userData};
 }
+
+
+
+
+let userId = null;
+
+onAuthStateChanged(auth, user => {
+  if (user) {
+    userId = user.uid;
+    localStorage.setItem('userId', userId);
+  } else {
+    userId = null;
+    localStorage.removeItem('userId');
+  }
+});
+
+export function getUserId() {
+  return userId;
+}
