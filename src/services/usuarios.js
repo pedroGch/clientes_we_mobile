@@ -1,5 +1,5 @@
 import { db } from "./firebase";
-import { doc, getDoc, getDocs, setDoc, serverTimestamp, collection, limit, where, query } from "firebase/firestore";
+import { doc, getDoc, getDocs, setDoc, serverTimestamp, collection, limit, where, query, updateDoc } from "firebase/firestore";
 
 /**
  * Obtiene un usuario por su id.
@@ -53,4 +53,16 @@ export  async function obtenerAdmin (){
     return admin
 
     console.log(snapshot)
+}
+
+
+/**
+ * Edita un usuario de la base de datos
+ * @param {*} usuario
+ */
+export function editarUsuario(usuario) {
+  updateDoc(doc(db, 'usuarios' , usuario.id),{
+    nombreUsuario: usuario.nombreUsuario,
+    genero: usuario.genero,
+  })
 }

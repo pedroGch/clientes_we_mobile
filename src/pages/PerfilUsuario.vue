@@ -1,8 +1,9 @@
 <script>
-import { obtenerUsuarioPorId } from '../services/usuarios'
+import { obtenerUsuarioPorId, editarUsuario } from '../services/usuarios'
 import Loader from "../components/Loader.vue";
 import BaseH2 from "../components/BaseH2.vue";
 import BaseButton from "../components/BaseButton.vue";
+import BaseInput from "../components/BaseButton.vue";
 
 export default {
   name: 'perfilDeUsuario',
@@ -10,14 +11,23 @@ export default {
     Loader,
     BaseH2,
     BaseButton,
+    BaseInput,
   },
   data() {
     return {
       cargando: true,
       usuario: {
         id: '',
-        email: ''
+        email: '',
+        nombreUsuario: '',
+        genero: ''
       }
+    }
+  },
+  methods: {
+    submitForm() {
+        editarUsuario(this.usuario)
+        this.$router.push('/perfil-usuario/:id')
     }
   },
   async mounted() {
@@ -42,7 +52,28 @@ export default {
       <div class="lg:flex">
 
         <div class="lg:flex-2">
-          <img src="../../public/img/curso2.jpg" alt="Imagen" class="lg:w-2/3 mx-auto mt-6">
+          <!-- <img src="../../public/img/curso2.jpg" alt="Imagen" class="lg:w-2/3 mx-auto mt-6"> -->
+          <form action="#" method="POST" id="form-edit" @submit.prevent="submitForm">
+          <div class="relative mb-6">
+            <label for="nombreUsuario">Nombre de usuario</label>
+            <input
+              class="block min-h-[auto] w-full rounded border bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none  dark:text-neutral-200 disabled:bg-gray-200"
+              type="text"
+              name="nombreUsuario"
+              id="nombreUsuario"
+              v-model="usuario.nombreUsuario" />
+          </div>
+          <div class="relative mb-6">
+            <label for="genero">Genero</label>
+            <input
+              class="block min-h-[auto] w-full rounded border bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none  dark:text-neutral-200 disabled:bg-gray-200"
+              type="text"
+              name="genero"
+              id="genero"
+              v-model="usuario.genero" />
+          </div>
+          <BaseButton type="submit">Editar</BaseButton>
+        </form>
         </div>
 
         <div class="lg:flex-1 px-6">
