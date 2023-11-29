@@ -22,6 +22,7 @@ export default {
         rol: 'usuario',
         nombreUsuario: '',
         genero: '',
+        compras: [],
       },
       errors: {
         email: '',

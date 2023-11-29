@@ -22,16 +22,17 @@ if (localStorage.getItem('user')){
  * @param {{email:string, password:string, rol:string}} user
  * @return {Promise}
  */
-export async function register({email, password, rol, nombreUsuario, genero}) {
+export async function register({email, password, rol, nombreUsuario, genero, compras}) {
   try {
     const userCredentials = await createUserWithEmailAndPassword(auth, email, password)
-    crearPerfilDeUsuario(userCredentials.user.uid, {email, rol, nombreUsuario, genero})
+    crearPerfilDeUsuario(userCredentials.user.uid, {email, rol, nombreUsuario, genero, compras})
     return {
       id : userCredentials.user.uid,
       email: userCredentials.user.email,
       rol: userCredentials.user.rol,
       nombreUsuario: userCredentials.user.nombreUsuario,
-      genero: userCredentials.user.genero
+      genero: userCredentials.user.genero,
+      compras: userCredentials.user.compras
     }
   } catch (error) {
     return {

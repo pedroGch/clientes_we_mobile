@@ -15,7 +15,8 @@ export async function obtenerUsuarioPorId(id) {
       email: docSnapshot.data().email,
       rol: docSnapshot.data().rol,
       nombreUsuario: docSnapshot.data().nombreUsuario,
-      genero: docSnapshot.data().genero
+      genero: docSnapshot.data().genero,
+      compras: docSnapshot.data().compras
   }
 }
 
