@@ -80,7 +80,9 @@ export default {
 
         <template v-if="editarPefilSeccion">
           <div class="lg:flex-1 px-6">
-            <form action="#" class="max-w-md m-auto" method="POST" id="form-edit" @submit.prevent="submitForm">
+            <div class="max-w-md m-auto">
+            <p class="my-3 mt-6 text-xl"><b>Editar Perfil</b></p>
+            <form action="#" method="POST" id="form-edit" @submit.prevent="submitForm">
           <div class="relative mb-6">
             <label for="nombreUsuario">Nombre de usuario</label>
             <input
@@ -102,6 +104,7 @@ export default {
           <BaseButton type="submit">Editar</BaseButton>
           <BaseButton @click="editarPefilOcultar">Cancelar</BaseButton>
         </form>
+        </div>
         </div>
         </template>
       </div>
