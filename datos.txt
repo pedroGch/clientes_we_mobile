@@ -5,7 +5,7 @@ Año: 2023,
 Turno: noche (virtual),
 Comisión: DWN4BV,
 
-Equipo:
+Alumno:
 * Valdiviezo, Ezequiel Francisco
 
 Docente: Gallino Santiago

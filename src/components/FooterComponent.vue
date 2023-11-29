@@ -28,7 +28,7 @@ export default {
 
       <div id="container-team" class=" lg:flex justify-center lg:flex-1">
 
-        <h3 class="ms-20 block text-xl font-bold ">Alumnos:</h3>
+        <h3 class="ms-20 block text-xl font-bold ">Alumno:</h3>
 
         <div class="flex">
 
