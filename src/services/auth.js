@@ -7,7 +7,9 @@ import {crearPerfilDeUsuario} from './usuarios'
 let userData = {
     id: null,
     email: null,
-    rol: null
+    rol: null,
+    nombreUsuario: null,
+    genero: null,
 }
 let observers = [];
 
@@ -20,14 +22,16 @@ if (localStorage.getItem('user')){
  * @param {{email:string, password:string, rol:string}} user
  * @return {Promise}
  */
-export async function register({email, password, rol}) {
+export async function register({email, password, rol, nombreUsuario, genero}) {
   try {
     const userCredentials = await createUserWithEmailAndPassword(auth, email, password)
-    crearPerfilDeUsuario(userCredentials.user.uid, {email, rol})
+    crearPerfilDeUsuario(userCredentials.user.uid, {email, rol, nombreUsuario, genero})
     return {
       id : userCredentials.user.uid,
       email: userCredentials.user.email,
-      rol: userCredentials.user.rol
+      rol: userCredentials.user.rol,
+      nombreUsuario: userCredentials.user.nombreUsuario,
+      genero: userCredentials.user.genero
     }
   } catch (error) {
     return {
@@ -138,7 +142,9 @@ function clearUserData() {
     setUserData({
         id: null,
         email: null,
-        rol:null
+        rol:null,
+        nombreUsuario:null,
+        genero:null
     });
 }
 
