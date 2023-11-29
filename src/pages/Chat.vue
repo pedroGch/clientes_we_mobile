@@ -1,5 +1,5 @@
 <script>
-import { loadSnapshot, saveMessage } from '../services/chatActions.js';
+import { loadSnapshot, saveMessage } from '../services/chatAcciones.js';
 import { dateToString } from '../helpers/date.js';
 import Loader from "../components/Loader.vue";
 import BaseButton from "../components/BaseButton.vue";
