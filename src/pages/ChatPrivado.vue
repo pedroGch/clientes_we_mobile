@@ -1,6 +1,6 @@
 <script>
 import {obtenerUsuarioPorId} from '../services/usuarios'
-import { enviarMensajePrivado, suscribirAChatPrivado } from '../services/ChatPrivado';
+import { enviarMensajePrivado, suscribirAChatPrivado } from '../services/chatPrivado';
 import { subscribeToAuth } from '../services/auth';
 import { dateToString } from '../helpers/date';
 import BaseButton from "../components/BaseButton.vue";
