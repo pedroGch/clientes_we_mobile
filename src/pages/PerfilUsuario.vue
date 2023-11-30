@@ -16,12 +16,12 @@ export default {
   data() {
     return {
       cargando: true,
-      editarPefilSeccion: false,
       usuario: {
         id: '',
         email: '',
         nombreUsuario: '',
-        genero: ''
+        genero: '',
+        compras: [],
       }
     }
   },
@@ -30,12 +30,12 @@ export default {
         editarUsuario(this.usuario)
         this.$router.push('/perfil-usuario/:id')
     },
-    editarPefilMostrar() {
-      this.editarPefilSeccion = true;
-    },
-    editarPefilOcultar() {
-      this.editarPefilSeccion = false;
-    },
+    // editarPefilMostrar() {
+    //   this.editarPefilSeccion = true;
+    // },
+    // editarPefilOcultar() {
+    //   this.editarPefilSeccion = false;
+    // },
   },
   async mounted() {
     this.cargando = true
@@ -56,32 +56,25 @@ export default {
 
       </div>
 
-      <div class="lg:flex">
+      <div class="lg:flex items-center">
 
-        <template v-if="!editarPefilSeccion">
-          <div class="lg:flex-2">
-            <img src="../../public/img/curso2.jpg" alt="Mandala pintada con marcadores" class="lg:w-2/3 mx-auto mt-6">
-          </div>
-        </template>
-
-        <div class="lg:flex-1 px-6">
-          <p class="my-3 mt-6 text-xl">¡Bienvenido <b>{{ usuario.email }}</b>!</p>
+        <div class="lg:flex-1 px-6 ">
+          <p class="my-3 mt-6 text-xl">¡Bienvenido <b>{{ usuario.nombreUsuario }}</b>!</p>
 
           <p class="my-3 text-xl">Acordate que tenés a tu disposición el chat para consultarnos todas tus dudas.</p>
 
           <p class="my-3 text-xl">En el siguiente link te invitamos a conocer todos los cursos que tenemos disponibles
             para vos. En caso que desees cambiar tu nombre de usuario y genero, también podras.</p>
 
-          <BaseButton @click="editarPefilMostrar">Editar Perfil</BaseButton>
           <BaseButton>
             <router-link to="/cursos">ver cursos</router-link>
           </BaseButton>
         </div>
 
-        <template v-if="editarPefilSeccion">
-          <div class="lg:flex-1 px-6">
-            <div class="max-w-md m-auto">
-            <p class="my-3 mt-6 text-xl"><b>Editar Perfil</b></p>
+        <div class="lg:flex-1">
+            <div class="lg:flex-1 px-6">
+            <div class="w-5/6 m-auto border rounded-lg border-purple-700 border-solid border-4 p-5">
+            <h3 class="my-3 mt-6 text-xl"><b>Editar Perfil</b></h3>
             <form action="#" method="POST" id="form-edit" @submit.prevent="submitForm">
           <div class="relative mb-6">
             <label for="nombreUsuario">Nombre de usuario</label>
@@ -102,11 +95,20 @@ export default {
               v-model="usuario.genero" />
           </div>
           <BaseButton type="submit">Editar</BaseButton>
-          <BaseButton @click="editarPefilOcultar">Cancelar</BaseButton>
+          <hr />
+          <div class="">
+            <h3 class="mt-2"><b>Compras de este usuario:</b></h3>
+            <ul>
+              <li v-for="(compra, index) in usuario.compras" :key="index">
+              - {{ compra }}.
+              </li>
+            </ul>
+        </div>
         </form>
         </div>
         </div>
-        </template>
+        </div>
+
       </div>
 
     </template>
