@@ -157,9 +157,6 @@ export function getUserData() {
     return {...userData};
 }
 
-
-
-
 let userId = null;
 
 onAuthStateChanged(auth, user => {

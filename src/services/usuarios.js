@@ -70,7 +70,7 @@ export function editarUsuario(usuario) {
 
 
 /**
- * Agrega un producto al arrays de compras
+ * Agrega un producto al arrays de compras dentro de usuario
  * @param {*} usuario
  */
 export function compraUsuario(producto, id) {

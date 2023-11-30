@@ -12,7 +12,7 @@ export default {
       <div class="ms-20 lg:flex-1">
         <div class="mb-4">
           <h3 class="block mb-2 text-xl font-bold ">Materia:</h3>
-          <p class="">Clientes Web Mobile - Parcial 1</p>
+          <p class="">Clientes Web Mobile - Parcial 2</p>
         </div>
 
         <div class="mb-4">
