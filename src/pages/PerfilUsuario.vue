@@ -59,7 +59,7 @@ export default {
       <div class="lg:flex items-center">
 
         <div class="lg:flex-1 px-6 ">
-          <p class="my-3 mt-6 text-xl">¡Bienvenido <b>{{ usuario.nombreUsuario }}</b>!</p>
+          <p class="my-3 mt-6 text-xl">¡Bienvenido/a <b>{{ usuario.nombreUsuario }}</b>!</p>
 
           <p class="my-3 text-xl">Acordate que tenés a tu disposición el chat para consultarnos todas tus dudas.</p>
 

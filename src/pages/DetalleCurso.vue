@@ -15,6 +15,7 @@ export default {
     return{
       producto: [],
       usuario: '',
+      msjModal: false,
     }
   },
   methods: {
@@ -23,6 +24,7 @@ export default {
       // Obtiene el ID del usuario en sesión
       const userId = getUserId();
       compraUsuario({...this.producto}, userId)
+      this.msjModal = true;
     },
   },
   async mounted(){
@@ -64,6 +66,11 @@ export default {
           </div>
 
         </div>
+        <template v-if="msjModal">
+          <div  class="fixed flex justify-center bg-purple-300 w-48 border rounded-lg border-purple-700 border-solid border-4">
+            <p class="p-3 text-center">Compra confirmada!</p>
+          </div>
+        </template>
       </div>
   </div>
 
